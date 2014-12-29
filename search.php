@@ -7,8 +7,14 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+    <header id="brand" style="background-image:url('<?php header_image(); ?>');">
+       <h1 class="name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+       <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2>
+    </header>
+     
+    <ins class="google-ad"></ins>
+
+		<main id="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -39,7 +45,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+
+
 <?php get_footer(); ?>

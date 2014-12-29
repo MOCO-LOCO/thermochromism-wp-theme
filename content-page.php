@@ -6,22 +6,25 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-content">
+	<header class="title" style="background-image:url('<?php thermochromism_post_header_image_src( ); ?>');">
+    <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+    <?php thermochromism_posted_on(); ?>
+	</header>
+
+	<div class="body">
 		<?php the_content(); ?>
+	</div>
+
+	<footer class="meta">
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'thermochromism' ),
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
 		<?php edit_post_link( __( 'Edit', 'thermochromism' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer>
+	
+</article>

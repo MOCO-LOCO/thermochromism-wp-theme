@@ -1,4 +1,40 @@
 <?php
+
+$fb_appid = '1510080215872330';
+
+
+// <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+function thermochromism_social_share_buttons( $title=null, $description=null, $url=null ){
+  global $wp;
+  global $fb_appid;
+  if( empty($title) ){
+    $title = (get_the_title() || '');
+  }
+  if( empty($description) ){
+    $description = (get_the_title() || '');
+  }
+  if( empty($url) ){
+    $url = get_permalink();
+  }
+  $title = urlencode($title);
+  $description = urlencode($description);
+  $tag = get_bloginfo('name');
+  $image = urlencode(thermochromism_post_header_image_src(false));
+  $current_url = urlencode(trailingslashit( add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) ));
+  $url = urlencode($current_url);
+  $fburl = "https://www.facebook.com/dialog/share?app_id=$fb_appid&display=popup&href=$url&redirect_uri=$current_url";
+  $twurl = "https://twitter.com/share?url=$url&text=$title&hashtags=$tag";
+  $tmurl = "http://www.tumblr.com/share/photo?source=$image&caption=$title&clickthru=$url";
+  $facebook  = "<a title=\"Share on Facebook\" class=\"facebook\" href=\"$fburl\"><i class=\"fa fa-facebook\"></i></a>";
+  $twitter   = "<a title=\"Share on Twitter\"  class=\"twitter\"  href=\"$twurl\"><i class=\"fa fa-twitter\"></i></a>";
+  $tumblr   = "<a title=\"Share on Tumblr\"    class=\"tumblr\"   href=\"$tmurl\"><i class=\"fa fa-tumblr\"></i></a>";
+  echo $facebook . $twitter . $tumblr;
+  
+}
+
+
 /**
  * Custom template tags for this theme.
  *
@@ -6,6 +42,18 @@
  *
  * @package Thermochromism
  */
+ 
+ if ( ! function_exists( 'thermochromism_nav_menu' ) ) :
+ /**
+  * Display navigation to next/previous set of posts when applicable.
+  */
+ function thermochromism_nav_menu( $args ) {
+   $args['echo'] = 0;
+   $m = wp_nav_menu($args); 
+   echo strip_tags($m, '<a>'); 	
+ }
+ endif;
+
 
 if ( ! function_exists( 'thermochromism_paging_nav' ) ) :
 /**
@@ -66,9 +114,14 @@ if ( ! function_exists( 'thermochromism_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function thermochromism_posted_on() {
+  
+  if ( 'post' != get_post_type() ){
+    return '';
+  }
+  
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date updated" data-published-datetime="%1$s" data-published-text="%2$s" datetime="%3$s">%4$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -88,9 +141,61 @@ function thermochromism_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="meta">' . $posted_on . '</span>';//'<span class="byline"> ' . $byline . '</span>';
 
 }
+endif;
+
+
+if ( ! function_exists( 'thermochromism_post_header_image_src' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ */
+function thermochromism_post_header_image_src( $print=true ) {
+	// Header image because feature iamge is harder to fallback than just doing this.
+	if ( 'post' == get_post_type() ) {
+	  
+    $src = (get_header_image()||'');
+	  if( has_post_thumbnail() ){
+	    $html = get_the_post_thumbnail();
+	  }else{
+	    $html = get_the_content();
+	  }
+	  $dom  = new DOMDocument();
+	  $dom->loadHTML( $html );
+    $xpath = new DOMXPath( $dom );
+    $image = $xpath->query( '//img|a[img][0]' );
+    if( count( $image ) == 0 ){
+      $src = get_header_image();
+    }else{
+      $item = $image->item(0);
+      if( $item ){
+        $src = $item->getAttribute('src');
+      }
+    }
+    if($print){
+      print $src;
+    }
+    return $src;
+	}
+
+
+}
+
+endif;
+
+if ( ! function_exists( 'thermochromism_post_header_image' ) ) :
+/**
+ * Header image because feature iamge is harder to fallback than just doing this.
+ */
+function thermochromism_post_header_image() {
+
+	if ( 'post' == get_post_type() ) {
+	  print "<img src=\"".thermochromism_post_header_image_src( false )."\" width=\"1000\" />";
+	}
+
+}
+
 endif;
 
 if ( ! function_exists( 'thermochromism_entry_footer' ) ) :
@@ -99,25 +204,25 @@ if ( ! function_exists( 'thermochromism_entry_footer' ) ) :
  */
 function thermochromism_entry_footer() {
 	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'thermochromism' ) );
-		if ( $categories_list && thermochromism_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'thermochromism' ) . '</span>', $categories_list );
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'thermochromism' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'thermochromism' ) . '</span>', $tags_list );
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'thermochromism' ), __( '1 Comment', 'thermochromism' ), __( '% Comments', 'thermochromism' ) );
-		echo '</span>';
-	}
+	// if ( 'post' == get_post_type() ) {
+	//     /* translators: used between list items, there is a space after the comma */
+	//     $categories_list = get_the_category_list( __( ', ', 'thermochromism' ) );
+	//     if ( $categories_list && thermochromism_categorized_blog() ) {
+	//       printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'thermochromism' ) . '</span>', $categories_list );
+	//     }
+	// 
+	//     /* translators: used between list items, there is a space after the comma */
+	//     $tags_list = get_the_tag_list( '', __( ', ', 'thermochromism' ) );
+	//     if ( $tags_list ) {
+	//       printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'thermochromism' ) . '</span>', $tags_list );
+	//     }
+	//   }
+	// 
+	//   if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+	//     echo '<span class="comments-link">';
+	//     comments_popup_link( __( 'Leave a comment', 'thermochromism' ), __( '1 Comment', 'thermochromism' ), __( '% Comments', 'thermochromism' ) );
+	//     echo '</span>';
+	//   }
 
 	edit_post_link( __( 'Edit', 'thermochromism' ), '<span class="edit-link">', '</span>' );
 }
@@ -245,6 +350,11 @@ function thermochromism_categorized_blog() {
 		return false;
 	}
 }
+
+
+
+
+
 
 /**
  * Flush out the transients used in thermochromism_categorized_blog.

@@ -12,7 +12,13 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+    <header id="brand" style="background-image:url('<?php header_image(); ?>');">
+       <h1 class="name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+       <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2>
+    </header>
+    
+    <ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins> 
+    
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -28,8 +34,8 @@ get_header(); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
 
-<?php get_sidebar(); ?>
+
+
 <?php get_footer(); ?>

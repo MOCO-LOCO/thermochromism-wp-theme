@@ -8,26 +8,27 @@
  */
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'thermochromism' ); ?></h1>
-	</header><!-- .page-header -->
+<!-- Going with this fn: http://stackoverflow.com/questions/13517773/semantic-html-for-confirmation-error-and-warnings-messages -->
+<aside class="message info-message">
 
-	<div class="page-content">
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+  <strong class="title"><?php _e( 'Nothing Found', 'thermochromism' ); ?></strong>
+  
+  <p class="body">
+    	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'thermochromism' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+  			<?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'thermochromism' ), esc_url( admin_url( 'post-new.php' ) ) ); ?>
 
-		<?php elseif ( is_search() ) : ?>
+  		<?php elseif ( is_search() ) : ?>
 
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'thermochromism' ); ?></p>
-			<?php get_search_form(); ?>
+  			<?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'thermochromism' ); ?>
+  			<?php #get_search_form(); ?>
 
-		<?php else : ?>
+  		<?php else : ?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'thermochromism' ); ?></p>
-			<?php get_search_form(); ?>
+  			<?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'thermochromism' ); ?></p>
+  			<?php #get_search_form(); ?>
 
-		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+  		<?php endif; ?>
+  </p>
+  
+</aside>

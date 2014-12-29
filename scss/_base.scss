@@ -1,0 +1,233 @@
+/* 
+  Typography.
+*/
+
+
+html{
+  font-size:62.5%;
+  @include fluid-full-width( );
+}
+body{
+  color:$text_color;;
+  font-family:$body_font;
+  font-size: $font_size + px;
+  font-size: rem-equiv($font_size) + rem;
+  line-height:$line_height;
+  box-sizing:border-box;
+  @include fluid-full-width( );
+  
+  @media screen and (max-width: 600px) {
+    line-height: calc-lineheight($font_size, 600);
+  }
+  @media screen and (max-width: 960px) {
+    line-height: calc-lineheight($font_size, 960);
+  }
+  @media screen and (max-width: 1200px) {
+    line-height: calc-lineheight($font_size, 1200);
+  }
+}
+
+header{
+  position:relative;
+  height:$golden_ratio_large * 100vh;
+  background-color:$media_background;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+  &:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,$golden_ratio_small);
+  }
+  & > a{
+    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  &#brand:before{
+    display:none;
+  }
+  &:active:before{
+    background:rgba(0,0,0,$golden_ratio_small);
+  }
+  h1,h2{
+    @include rem-prop-calc( width, 100%, 6 );
+  }
+  h1,h2,.meta{
+    position:relative;
+    z-index:2;
+    @include rem-prop( 'padding', $content_space);
+    color:#fff;
+  }
+  .share{
+    position:absolute;
+    display:block;
+    z-index:2;    
+    @include rem-prop( 'width', 4);
+    @include rem-prop( 'top', 2);
+    right:0;
+    a{
+      display:inline-block;
+      @include rem-prop( 'width', 3);
+      @include rem-prop( 'font-size', 2);
+      @include rem-prop( 'padding', .5);      
+      text-align:center;
+      vertical-align:center;
+      background:rgba(0,0,0,0.5);
+      margin-bottom:$golden_ratio_small * rempx(4);
+      margin-bottom:$golden_ratio_small * 4rem;
+      i{
+        color:$mag_yellow;
+      }
+    }
+  }
+  .meta{
+    position:absolute;
+    right:0;
+    bottom:0;
+    a{
+      color:$mag_yellow;
+    }
+  }
+  @media (max-height:512px){
+    @include rem-prop-calc( height, 100vmin, $menu_height );
+    @include rem-prop-calc( min-height, 100vmin, $menu_height );
+  }
+  
+  .home > &, .single  &:first-of-type{
+    background-position:center top;
+    
+    $h: $golden_ratio_large * 100vh;
+    @include rem-prop-calc( height, $h, $menu_height );
+    @include rem-prop( padding-top, $menu_height );
+    
+    @media (max-height:512px){
+      @include rem-prop-calc( height, 100vmin, $menu_height );
+      @include rem-prop-calc( min-height, 100vmin, $menu_height );
+    }
+    
+  }
+  
+}
+
+.google-ad{
+  display:block;
+  width:100%;
+  max-height:$golden_ratio_small * 100vh;
+  height:$golden_ratio_small * 100vh;
+//  @include rem-prop( 'padding', 2 * $content_space );
+  background-color:#fff;
+  outline:3px dashed lightblue;  
+  background-image:url('images/gad.png');
+}
+
+.google-ad.horizontal{
+  
+}
+
+
+button{
+  border:1px solid white;
+  background:$notwhite;
+  color:$notblack;
+  box-shadow:2px 2px 1px rgba($notblack,0.1);
+  text-shadow:1px 1px 0 rgba($notwhite,0.5);
+  outline:none;
+}
+
+@import 'navigation';
+
+
+#content{
+  .home &{
+    article{
+      width:100%;
+    }
+    @media (min-width: 1024px){
+      &{
+        white-space:nowrap;
+      }
+      article{
+        vertical-align:top;
+        display:inline-block;
+        max-width:50%;
+        white-space:normal;
+      }
+    }
+    
+  }
+}
+.party{
+  position:relative;
+  width:100%;
+  background:#444;
+  @include rem-prop-calc(height, $golden_ratio_small * 100vh,  .5 );
+  &:before{
+    position:absolute;
+    content:'Party';
+    top:50%;
+    left:48%;
+    transform:rotate(-45deg);
+    color:$mood_purple;
+  }
+}
+.body{
+  width:100%;
+  min-height:100%;
+  display:block;
+  img{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    vertical-align: top;
+  }
+  .images,.text{
+    display:inline-block;
+  }
+  .images{
+    position:relative;
+    vertical-align:top;
+    width:100%;
+    background:blue;
+    min-height:$golden_ratio_large * 100vh;
+    height:auto;
+//    height:$golden_ratio_large * 100vh;
+  }
+  .text{
+    @include rem-prop-calc( width, 100, $content_space );
+    @include rem-prop( padding, $content_space );
+    display:inline-block;
+  }
+  
+  @media (min-width: 1024px){
+    $content_space: 4;
+    .images{
+      background:red;
+      width:100% * $golden_ratio_large;  
+      img{
+        vertical-align:top;
+        max-width:50%;
+        max-height:100%;
+      }    
+    }
+    .text{
+//      $pad: 8 ;
+      @include rem-prop-calc( width, 100% * $golden_ratio_small, $content_space );
+      @include rem-prop( 'padding', $content_space);
+    }
+  }
+
+
+}
+
+#masthead{
+  min-height:100vh * $golden_ratio_small;
+  background:#333;
+}
+

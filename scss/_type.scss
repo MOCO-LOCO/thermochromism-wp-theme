@@ -1,0 +1,67 @@
+body{
+  color:#444;
+  text-shadow:1px 1px 1px rgba(0,0,0,0.03);
+}
+a{
+ color:$link_color; 
+ text-decoration:none;
+}
+
+h1,h2,h3,h4,h5,button,input{
+  font-family:$header_font;
+  font-weight:700;
+  color:$title_color;
+}
+
+h1,h2,h3,h4,h5,button,input, p{
+  & a{
+    color:inherit;
+    text-decoration:inherit;
+  }
+}
+
+h1{
+  $f: (3 * $font_size);
+  font-size:$f + px;
+  font-size:($f / 10) + rem;
+  @media screen and (max-width:600px){
+   line-height: 1.1;
+  }
+}
+
+h2{
+  $f: (2 * $font_size);
+  font-size:$f + px;
+  font-size:($f / 10) + rem;
+}
+
+h1,h2,h3,h4,h5,p{
+  padding:0;
+  $f:(2 * $font_size);
+  padding-bottom:$f - calc-lineheight($f) + px;
+  padding-bottom:($f - calc-lineheight($f)) / 10 + rem;
+}
+h1,h2,meta{
+  text-shadow:1px 1px 1px rgba(0,0,0,0.3);
+}
+
+nav,button,input{
+  font-family:$header_font;
+  font-size:inherit;
+  font-weight:inherit;
+  color:inherit;
+}
+button{
+  color:$notblack;
+}
+.fa{
+  color:$icon_color;
+}
+.body p:first-child:first-letter{
+  @include rem-prop( 'font-size', 2);
+  color:#000;
+  font-weight:bold;
+}
+nav a, h1,h2,h3,h4{
+  @include rem-prop( 'letter-spacing', .1);
+}

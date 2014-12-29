@@ -1,0 +1,105 @@
+
+@function rempx( $size ){
+  @return 10 * $size;
+}
+
+@function calc-lineheight( $f: $font_size, $w: 960 ){
+ $phi: 1.61803398875;
+ @return $phi - ( 1 / (2 * $phi) ) * ( 1 - ( $w / ( $w * $phi) ));
+}
+
+@function rem-equiv( $px ) {
+  @return $px / 10;
+}
+
+@mixin full-width( $ratio: 1 ){
+  width:100% * $ratio;
+  width:100vw * $ratio;
+  min-width:100% * $ratio;
+  min-width:100vw * $ratio;
+}
+
+@mixin full-height( $ratio: 1 ){
+  position:relative;
+  height:100% * $ratio;
+  height:100vw * $ratio;
+  min-height:100% * $ratio;
+  min-height:100vw * $ratio;
+  &:before{
+    content:'';
+    position:absolute;
+    display:block;
+    width:100%;
+    height:0;
+    padding-bottom:100%;
+  }
+}
+
+@mixin fluid-full-width( $allowBleed: 0, $ratio: 1 ){
+  width:100% * $ratio;
+  width:100vw * $ratio;
+  min-width:100% * $ratio;
+  min-width:100vw * $ratio;
+  @if $allowBleed == 0 {
+    max-width:100% * $ratio;
+    max-width:100vw * $ratio;
+    overflow-x:hidden;    
+  }
+}
+
+@mixin fluid-full-height( $allowBleed: 0, $ratio: 1 ){
+  position:relative;
+  height:100% * $ratio;
+  height:100vh * $ratio;
+  min-height:100% * $ratio;
+  min-height:100vh * $ratio;
+  @if $allowBleed == 0 {
+    max-height:100% * $ratio;
+    max-height:100vh * $ratio;
+    overflow-y:hidden;    
+  }
+}
+
+
+@mixin child-colors( $colors, $prop: color ){
+  @for $i from 1 through length($colors){
+    &:nth-of-type(#{length($colors)}n+#{$i}){
+      #{$prop}: nth( $colors, $i );
+    }
+  }
+}
+
+@mixin each-color( $colors ){
+  @for $i from 1 through length($colors){
+    &:nth-of-type(#{length($colors)}n+#{$i}){
+      $iteration_color: nth( $colors, $i );
+      @content;
+    }
+  }
+  $iteration_color: $mood_red;
+}
+
+@mixin rem-prop( $prop, $n ){
+  #{$prop}: (10 * $n) + px;
+  #{$prop}: $n + rem;
+}
+@mixin rem-prop-calc( $prop, $a, $b ){
+  #{$prop}: calc( #{$a} - #{ 10px * $b } );
+  #{$prop}: calc( #{$a} - #{ 1rem * $b } );
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+}

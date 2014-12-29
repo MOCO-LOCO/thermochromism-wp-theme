@@ -1,0 +1,106 @@
+
+#brand{
+  
+  .name{
+    position:absolute;
+    display:block;
+    $width:$golden_ratio_large * ($golden_ratio_large * 100vh);
+    $height:$width;
+    width:$width;
+    height:0;
+    padding-bottom:$height;
+    left:50%;
+    top:rempx(1rem);
+    top:1rem;
+    margin-left:-.6 * $width;
+    overflow:hidden;
+    text-indent:-10 * $width;
+    background-image:url('./images/red-moco.png');
+    background-size:100%;
+    background-position:50%;
+    background-repeat:no-repeat;
+    @include animation('playlogoimages 24s ease-in-out 2s infinite');
+  }
+  .tagline{
+    position:absolute;
+    display:block;
+    color:$mood_red;
+    bottom:0;
+    font-size: ( $golden_ratio_large * 100vh ) / 12;    
+    font-weight:300;
+    letter-spacing:0.1em;
+    text-align:center;
+    opacity:0.4;
+    @include animation('playlogotext 24s ease-in-out 2s infinite');
+  }
+  @media (min-width:1200px){
+    .name{
+      margin:0;
+      top:rempx(4rem);
+      top:4rem;
+      left:rempx(2);
+      left:2rem;
+    }
+  }
+}
+
+
+
+
+@include keyframes( playlogoimages ){ 
+    0%{
+        background-image:url('./images/red-moco.png');
+    }
+    12%{
+        background-image:url('./images/orange-moco.png');
+    }
+    25%{
+      background-image:url('./images/yellow-moco.png');
+    }
+    37%{
+
+      background-image:url('./images/green-moco.png');
+    }
+    50%{
+
+      background-image:url('./images/cyan-moco.png');
+    }
+    62%{
+
+      background-image:url('./images/blue-moco.png');
+    }
+    75%{
+      background-image:url('./images/purple-moco.png');
+    }
+    87%{
+      background-image:url('./images/magenta-moco.png');
+    }
+}
+
+@include keyframes( playlogotext ){ 
+
+    0%{
+      color:$mood_red;
+    }
+    12%{
+      color:$mood_orange;
+    }
+    25%{
+      color:$mood_yellow;
+    }
+    37%{
+      color:$mood_green;
+    }
+    50%{
+      color:$mood_cyan;
+    }
+    62%{
+      color:$mood_blue;
+    }
+    75%{
+      color:$mood_purple;
+    }
+    87%{
+      color:$mood_magenta;      
+    }
+}

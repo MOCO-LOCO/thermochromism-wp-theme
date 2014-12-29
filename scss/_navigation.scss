@@ -1,0 +1,87 @@
+#navigation{
+  position:fixed;
+  box-shadow:0 0 2px rgba(0,0,0,0.1);
+  z-index:9999;
+  overflow:hidden;
+  background:rgba($notwhite,0.8);
+  height:0px;
+  @include rem-prop( 'padding-top',  6 );
+  width:100%;
+  max-width:100vw;
+  transition:all .2s ease-in-out;
+  top:0;
+  left:0;
+  border-bottom:1px solid #fff;
+  button{
+    position:absolute;
+    top:0;
+    left:0;
+    @include rem-prop( 'width',  8 );
+    @include rem-prop( 'height',  4 );
+    @include rem-prop( 'margin',  1 );
+    transition:all .2s ease-in-out;
+  }
+  &.toggled{
+    height:98vh;
+    background:rgba($notwhite,0.9);    
+    button{
+      left:100%;
+      @include rem-prop( 'margin-left',  -10 );
+    }
+  }
+  a{
+    position:relative;
+    letter-spacing:0.1em;
+    text-shadow:0 0 1px rgba(255,255,255,0.33);
+    font-weight:300;
+    display:block;
+    color:$notwhite;
+    @include rem-prop-calc( width, 100%, 6 );
+    padding:rempx(1) rempx(2);
+    padding:1rem 2rem;
+    @include rem-prop( 'margin',  1 );
+
+    @include each-color( $mood_colors ){
+      background:darken($iteration_color, 10%);
+      text-shadow:-1px -1px 0px darken($iteration_color, 40%);
+      color:#fff;
+    }
+    
+  }
+  
+  @media (min-width:500px){
+    a{
+      display:inline-block;
+      @include rem-prop-calc( width, 50%, 7 );
+    }
+  }
+  
+  @media (min-width: 1024px){
+    $content_space: 4;
+    &, &.toggled{
+      @include rem-prop-calc( width, 100%, 6 );
+      padding:0 rempx(6);
+      padding:0 6rem;
+      @include rem-prop( 'height',  6 );
+      line-height:1;
+      text-align:right;
+      button{display:none}
+      a{
+        color:#000;
+        display:inline-block;
+        width:auto;
+        margin-left:0;
+        background:none;
+        border-bottom:2px solid rgba(255,255,255,0);
+        transition:border-bottom-color #{$golden_ratio_small}s ease-out;        
+        &:hover{
+          transition:none;
+          color:#000;
+          border-bottom-color:#159;
+          @include child-colors( $mood_colors, border-bottom-color );
+        }
+      }
+    } 
+  }
+  
+}

@@ -1,0 +1,20 @@
+{
+  "name": "horizontal-grid-packing",
+  "description": "Horizontal grid packing",
+  "version": "0.1.4",
+  "main": [
+    "dist/horizontal-grid-packing.js",
+    "dist/horizontal-grid-packing.css"
+  ],
+  "homepage": "https://github.com/jonathanong/horizontal-grid-packing",
+  "_release": "0.1.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.4",
+    "commit": "6a61b2ae95dca5546669b03e1ce7bb9789985ba4"
+  },
+  "_source": "git://github.com/jonathanong/horizontal-grid-packing.git",
+  "_target": "~0.1.4",
+  "_originalSource": "horizontal-grid-packing",
+  "_direct": true
+}
