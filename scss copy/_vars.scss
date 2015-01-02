@@ -1,0 +1,55 @@
+/*
+
+  Variables.
+  
+*/
+
+$golden_ratio: 1.61803398875;
+$golden_ratio_large: 1 / 1.61803398875;
+$golden_ratio_small: 1 - $golden_ratio_large;
+
+$mood_red:   #FF0000; 
+$mood_orange: #FF6300;
+$mood_yellow: #FEE209;
+$mood_green:  #49FF06;
+$mood_cyan:   #30FFFF;
+$mood_blue:   #3000FF;
+$mood_purple: #5A0083;
+$mood_magenta: #FF00FF;
+$mood_colors: $mood_red, $mood_orange, $mood_yellow, $mood_green, $mood_cyan, $mood_blue, $mood_purple, $mood_magenta;
+
+$header_font: Futura, 'Trebuchet MS', Arial, 'sans-serif';
+$body_font: "Georgia New", Georgia, Times, 'Times New Roman', serif;
+
+$header_image: url('./images/bg.svg');
+$header_image_gradient: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)  );
+
+$font_size: 17;
+$line_height: calc-lineheight($font_size,100);
+
+$menu_height: 6;
+
+$content_space:2;
+
+$mag_yellow:#D9D05B;
+
+
+$iteration_color: $mood_red;
+
+$notblack: #00000F;
+$notwhite: #FEFEFF;
+
+
+$icon_color: #fff;
+$hilite_bg: #ff9;
+$hilite_color: #000;
+$border_color: #fcfcfc;
+$background_color: #fefefe;
+
+$title_color: #101019;
+$text_color: #30303C;
+$link_color: $mood_red;
+
+$media_background:#999;
+$button_color:#fff;
+$button_background:#480;

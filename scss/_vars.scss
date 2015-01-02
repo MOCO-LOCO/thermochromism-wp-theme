@@ -10,7 +10,7 @@ $golden_ratio_small: 1 - $golden_ratio_large;
 
 $mood_red:   #FF0000; 
 $mood_orange: #FF6300;
-$mood_yellow: #FEE209;
+$mood_yellow: #F1D30C;
 $mood_green:  #49FF06;
 $mood_cyan:   #30FFFF;
 $mood_blue:   #3000FF;
@@ -48,7 +48,7 @@ $background_color: #fefefe;
 
 $title_color: #101019;
 $text_color: #30303C;
-$link_color: #60606F;
+$link_color: $mood_red;
 
 $media_background:#999;
 $button_color:#fff;

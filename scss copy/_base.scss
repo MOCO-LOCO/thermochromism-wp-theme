@@ -1,0 +1,394 @@
+/* 
+  Typography.
+*/
+
+
+html{
+  font-size:62.5%;
+}
+html,body{
+  width:100vw;
+  max-width:100vw;
+  overflow-x:hidden;
+  box-sizing:border-box;
+}
+body{
+  color:$text_color;;
+  font-family:$body_font;
+  font-size: $font_size + px;
+  font-size: rem-equiv($font_size) + rem;
+  line-height:$line_height;
+  @include fluid-full-width( );
+  
+  @media screen and (max-width: 600px) {
+    line-height: calc-lineheight($font_size, 600);
+  }
+  @media screen and (max-width: 960px) {
+    line-height: calc-lineheight($font_size, 960);
+  }
+  @media screen and (max-width: 1200px) {
+    line-height: calc-lineheight($font_size, 1200);
+  }
+}
+
+header{
+  position:relative;
+  height:$golden_ratio_large * 100vh;
+  content: 'viewport-units-buggyfill; height: #{$golden_ratio_large * 100vh};';
+  background-color:$media_background;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+  &:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,$golden_ratio_small);
+  }
+  & > a{
+    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  &:active:before{
+    background:rgba(0,0,0,$golden_ratio_small);
+  }
+  h1,h2{
+    position:relative;
+    display:inline-block;
+    @include rem-prop-calc( width, 100%, $content_space * 3 );
+    @include rem-prop-calc( height, 100%, 2 );
+    a{
+      position:absolute;
+      top:$content_space;
+      left:$content_space;
+      @include rem-prop-calc( width, 100%, $content_space * 5 ); 
+      @include rem-prop-calc( max-height, 100%, $content_space * 6 );       
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+  }
+  h1,h2,.meta{
+    position:relative;
+    z-index:2;
+    @include rem-prop( 'padding', $content_space );
+    color:#fff;
+  }
+  .share{
+    position:absolute;
+    display:block;
+    z-index:2;    
+    @include rem-prop( 'width', $content_space*2);
+    @include rem-prop( 'top', $content_space);
+    right:0;
+    a{
+      display:inline-block;
+      @include rem-prop( 'width', 3);
+      @include rem-prop( 'font-size', 2);
+      @include rem-prop( 'padding', .5);      
+      text-align:center;
+      vertical-align:center;
+      background:rgba(0,0,0,0.5);
+      margin-bottom:$golden_ratio_small * rempx(4);
+      margin-bottom:$golden_ratio_small * 4rem;
+      i{
+        color:$mag_yellow;
+      }
+    }
+  }
+  .meta{
+    position:absolute;
+    right:0;
+    bottom:0;
+    .cats{
+      display:inline-block;
+      padding-right:.5em;
+      margin-right:.5em;      
+      border-right:1px solid rgba($notwhite, .2);
+    }
+    a, a *{
+      color:$mag_yellow;
+    }
+  }
+
+  @media (min-width:1024px){
+    $content_space: 4;
+    .home > &, .single  &:first-of-type{
+      $h: $golden_ratio_large * 100vh;
+      @include rem-prop-calc( height, $h, $menu_height );
+      @include rem-prop( padding-top, $menu_height );
+//      @include rem-prop( 'top', $menu_height);
+    }
+
+    h1,h2{
+       @include rem-prop-calc( width, 100%, $content_space * 2 );
+     }
+     h1,h2,.meta{
+       @include rem-prop( 'padding', $content_space );
+     }
+  }
+  .share{
+    @include rem-prop( 'width', $content_space);
+    @include rem-prop( 'top', $content_space);
+    
+  }
+  .home > &, .single  &:first-of-type{
+    $h: $golden_ratio_large * 100vh;
+    @include rem-prop-calc( height, $h, $menu_height );
+    @include rem-prop( padding-top, $menu_height );
+    
+    @media (max-height:512px){
+      @include rem-prop-calc( height, 100vmin, $menu_height );
+      @include rem-prop-calc( min-height, 100vmin, $menu_height );
+    }
+    
+  }
+  
+}
+
+.google-ad{
+  display:block;
+  width:100%;
+  max-height:$golden_ratio_small * 100vh;
+  height:$golden_ratio_small * 100vh;
+//  @include rem-prop( 'padding', 2 * $content_space );
+  background-color:#fff;
+  outline:3px dashed lightblue;  
+  background-image:url('images/gad.png');
+}
+
+.google-ad.horizontal{
+  
+}
+
+
+button{
+  border:1px solid white;
+  background:$notwhite;
+  color:$notblack;
+  box-shadow:2px 2px 1px rgba($notblack,0.1);
+  text-shadow:1px 1px 0 rgba($notwhite,0.5);
+  outline:none;
+}
+
+@import 'navigation';
+
+
+#content{
+  position:relative;
+  .home &{
+    article{
+      vertical-align:top;
+      display:inline-block;
+      
+      width:100%;
+    }
+    @media (min-width: 780px){
+      article{
+        max-width:50%;
+      }
+    }
+    @media (min-width: 1024px){
+      article{
+        max-width:33%;
+      }
+    }
+    @media (min-width: 1440px){
+       article{
+         max-width:25%;
+       }
+     }
+    
+  }
+}
+.party{
+  position:relative;
+  width:100%;
+  background:url('images/noise.png');
+  @include rem-prop-calc(height, $golden_ratio_small * 100vh,  0 );
+  &.big{
+    @include rem-prop-calc(height, $golden_ratio_large * 100vh,  0 );
+  }
+  &:before{
+    position:absolute;
+    content:attr(class);
+    top:50%;
+    left:50%;
+    margin-left:-5em;
+    margin-top:-1em;    
+    font-weight:bold;
+    transform:rotate(-45deg);
+    color:red;
+  }
+}
+.body{
+  position:relative;
+  width:100%;
+  min-height:100%;
+  display:block;
+  overflow:hidden;
+  img,.image-link{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    vertical-align: top;
+  }
+  .image-link{
+    display:inline-block;
+  }
+  .images,.text{
+    display:inline-block;
+  }
+  .images{
+    position:relative;
+    vertical-align:top;
+    width:100%;
+    background:rgba($notblack,.1);
+    min-height:$golden_ratio_large * 100vh;
+    height:auto;
+  }
+  .text{
+    @include rem-prop-calc( width, 100%, $content_space );
+    @include rem-prop( padding, $content_space );
+    p,iframe{
+      @include rem-prop-calc( max-width, 100%, $content_space );
+    }
+  }
+  
+  @media (min-width: 1024px){
+    $content_space: 4;
+    &{
+      @include rem-prop-calc( padding-left, 100vw * $golden_ratio_large , $content_space );
+    }
+    .images{
+      @include rem-prop-calc( width, 100vw * $golden_ratio_large , $content_space );
+//      background:red;
+      position:absolute;
+      top:0;
+      left:0;
+      img,.image-link{
+        vertical-align:top;
+        min-width:25%;
+        min-height:25%;
+        &.portrait{
+          max-width:25%;
+        }
+        &.square{
+          max-width:50%;
+        }
+        &.landscape{
+          width:100%;
+          max-height:25%;
+        }
+       
+      }
+      
+    }
+    .text,.party{
+      @include rem-prop-calc( width, 100% * $golden_ratio_small, $content_space * 2 );
+      @include rem-prop( 'padding', $content_space  * 2 );
+    }
+    
+  }
+
+
+}
+
+#elsewhere{
+
+  div{
+    position:relative;
+    display:inline-block;
+    border:6px double rgba($notblack,0.2);
+    @include rem-prop-calc( width, 100%, $content_space * 7 );
+    @include rem-prop( 'padding', $content_space );
+    @include rem-prop( 'margin', $content_space );
+    @include rem-prop( 'padding-left', $content_space * 2 );
+    &:before{
+      font-family:FontAwesome;
+      color:rgba($notblack,0.2);
+      @include rem-prop( 'font-size', $content_space * 2 );
+      position:absolute;
+      
+    }
+    &.previously:before{
+      content: "\f053";
+      left:0;
+      top:0;
+    }
+    &.nextup{
+      @include rem-prop( 'padding-left', $content_space );
+      @include rem-prop( 'padding-right', $content_space * 2 );
+      &:before{
+        content: "\f054";
+        right:0;
+        top:0;
+      }
+    }
+    a, a *{
+      display:block;
+      width:100%;
+      height:100%;
+      color:$notblack;
+    }
+    cite{
+      position:relative;
+      padding:0 .5em;
+      @include rem-prop( 'font-size', 2 );
+      &:before,&:after{
+        font-family:FontAwesome;
+        color:rgba($notblack,0.2);
+        @include rem-prop( 'margin', 2 );
+      }
+      &:before{
+        content:"\f10d";
+      }
+      &:after{
+       content:"\f10e";
+      }
+    }
+
+  }
+  @media ( min-width: 960px ){
+    white-space:nowrap;
+    div{
+      vertical-align:top;
+      display:inline-block;
+      white-space:nowrap;
+      a{
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      @include rem-prop-calc( width, 50%, $content_space * 5 );      
+      &:first-child{
+        margin-right:0;
+      }
+    }
+  }
+}
+
+#masthead{
+  min-height:100vh * $golden_ratio_small;
+  background:#333;
+}
+
+#tags{
+  @include rem-prop-calc( width, 100%, $content_space );
+  @include rem-prop( padding, $content_space );  
+  padding-top:0;
+  @media ( min-width: 1024px ){
+    $content_space: $content_space * 2;
+    @include rem-prop-calc( width, 100%, $content_space );
+    @include rem-prop( padding, $content_space );
+    padding-top:0;    
+  }
+  a{
+    color:$mood_purple;
+  }
+}
+
