@@ -20,7 +20,7 @@ function moco_sponsor( $name='' )
 	if( $name == 'architonic' ):
 		echo '<a id="architonic-ad" class="moco-ad" href="http://www.architonic.com/" target="_blank" title="Architonic | architecture and design"><img src="http://mocoloco.com/gmida/architonic_145x120px_130108.gif" title="Architonic" title="Architonic | architecture and design" alt="Architonic | architecture and design" width="145" height="120" border="0"></a>';
 	endif;    
-
+	
 	/* Moco Jobs Ad */
 	if( $name == 'jobs' ):
 		echo '<a id="moco-jobs-ad" class="moco-ad" href="http://mocoloco.com/jobs/" target="_blank" title="MOCO Jobs"><img src="http://mocojobs.com/stage/wp-content/uploads/2014/07/moco_jobs_145x120.jpg"  title="MOCO Jobs" alt="MOCO Jobs" width="145" height="120" border="0"></a>';

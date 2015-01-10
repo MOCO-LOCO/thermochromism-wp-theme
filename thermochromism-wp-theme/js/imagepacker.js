@@ -6,9 +6,7 @@ window.viewportUnitsBuggyfill.init();
   //   $(this).css( { height: h, minHeight: h, maxHeight: h });
   // })
     $(function () {
-        if( $(window).width() < 900  ){
-          return;
-        }
+
         $container = $('.images');
         $parent =  $container.parent('.sub-body');
         var height = $parent.height();
@@ -26,7 +24,7 @@ window.viewportUnitsBuggyfill.init();
                       var mult = (width / 2 ) * ( cells  / 2);
                       $container.add( $parent ).css({height: mult, minHeight: mult ,maxHeight: mult, overflow: 'hidden'});
                       $images.each( function () {
-                              var $i = $( this );
+                              var $i = $( this ).css('opacity', 1);
                               var $wrap = $('<a>');
                               var shape = $i.data('shape');
                               var h = Math.floor( height / ($images.length*2)  );
@@ -40,7 +38,7 @@ window.viewportUnitsBuggyfill.init();
                                                                             e.preventDefault();
 
                                         $cl.remove();                                  })
-                                  $i.toggleClass('preview');
+                                  $i.toggleClass('preview')
                               });
 
                                               

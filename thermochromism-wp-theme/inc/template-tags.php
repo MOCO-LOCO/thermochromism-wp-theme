@@ -74,8 +74,8 @@ function thermochromism_page_nav_links() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 	if ( ! $next && ! $previous ) { return; }
-	$previous_link = previous_post_link( '<div class="previously">%link</div>', _x( '<cite>%title</cite>', 'Previous post link', 'thermochromism' ) );
-	$next_link = next_post_link(     '<div class="nextup">%link</div>',     _x( '<cite>%title</cite>', 'Next post link',     'thermochromism' ) );
+	$previous_link = previous_post_link( '%link', _x( '<cite>%title</cite>', 'Previous post link', 'thermochromism' ) );
+	$next_link = next_post_link(     '%link',     _x( '<cite>%title</cite>', 'Next post link',     'thermochromism' ) );
 	if( !empty( $previous_link ) ){
 	  $previous_link = str_replace('<a', '<a class="previous" ', $previous_link);
 	}
@@ -109,10 +109,9 @@ function thermochromism_post_footer_meta_content(){
   if ( 'post' != get_post_type() ){  return ''; }
   ?>
   
-    <div class="meta">
+    
       <?php thermochromism_post_tag_links(); ?>
       <aside class="party"></aside>
-    </div>
     
   <?php
 }
@@ -120,9 +119,8 @@ function thermochromism_post_footer_meta_content(){
 function thermochromism_page_footer_meta_content(){
   ?>
   
-    <div class="meta">
+  
       <?php thermochromism_page_nav_links(); ?>
-    </div>
     
   <?php
 }
@@ -189,8 +187,8 @@ function thermochromism_post_nav() {
 	?>
 	<nav id="elsewhere">
 			<?php
-		    previous_post_link( '<div class="previously">%link</div>', _x( '<cite>%title</cite>', 'Previous post link', 'thermochromism' ) );
-				next_post_link(     '<div class="nextup">%link</div>',     _x( '<cite>%title</cite>', 'Next post link',     'thermochromism' ) );
+		    previous_post_link( '%link', _x( '<cite>%title</cite>', 'Previous post link', 'thermochromism' ) );
+				next_post_link(     '%link',     _x( '<cite>%title</cite>', 'Next post link',     'thermochromism' ) );
 			?>
 	</nav><!-- .navigation -->
 	<?php

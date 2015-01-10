@@ -51,11 +51,8 @@
    </footer>
 	
    <nav id="navigation">
-  
       <button class="navigation-toggle"><?php _e( 'Menu', 'thermochromism' ); ?></button>
-      
       <?php thermochromism_nav_menu(array( 'theme_location' => 'primary', 'container' => false) ); ?>
-    
     </nav>
 
 
