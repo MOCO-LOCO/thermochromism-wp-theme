@@ -20,16 +20,8 @@ googletag.cmd = googletag.cmd || [];
 })();
 
 googletag.cmd.push(function() {
-  var mapping1 = googletag.sizeMapping().
-    addSize([0, 0], []).
-    addSize([1200, 200], [970, 350]). // Desktop
-    addSize([960, 300], [930, 180]). // Desktop
-    addSize([600, 100], [468, 60]). // Desktop    
-    addSize([320, 50], [320, 50]). // Desktop        
-    build();
-  
+ 
 
-  // This mapping will only display ads when user is on mobile or tablet sized viewport
   var mapping2 = googletag.sizeMapping().
     addSize([300, 50], [320,50]).
     addSize([500, 100], [320, 100]). 
@@ -63,5 +55,7 @@ var gptAdSlots = [
 }); //cmd.push()
 
 googletag.cmd.push(function() { 
-      googletag.display(); 
+      googletag.display('google-ad-banner-a'); 
+      googletag.display('google-ad-banner-b');
+       googletag.display('google-ad-square'); 
 });
