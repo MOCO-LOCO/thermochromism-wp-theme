@@ -1,61 +1,66 @@
 window.viewportUnitsBuggyfill.init();
 !(function ( $ ) {
-  $('header').each(function () {
-    var h = (this.offsetHeight||$(this).height()) + 'px';
-    $(this).css( { height: h, minHeight: h, maxHeight: h });
-  })
-  $(function () {
-    if( $(window).width() < 1024 ){
-      return;
-    }
-    $container = $('.images');
-    var height = $container.next('.text').height();
-    
-    $container.height( height );
-    if( $container.length ){
-      var $images = $container.children('img');
-      var total  = $images.length;
-      var loaded = 0;
-      if( total ){
-        var complete = function () {
-          $images.sort( function ( a, b ) {
-            var aShape = $( a ).data('shape');
-            var bShape = $( b ).data('shape');
-            if( aShape > bShape ) return -1;
-            if( aShape < bShape ) return 1;
-            return 0;
-          }).detach().appendTo( $container ).each( function () {
-            var $i = $( this );
-                                    var $wrap = $('<a>');
-                                    var shape = $i.data('shape');
-                                    var h = Math.floor( height / ($images.length*2)  );
-                                    $wrap.addClass( "image-link " + shape ).attr( 'href', $i.attr('src') );
-                                    $wrap.css({
-                                     'background-image': 'url(' + $i.attr('src') + ')',
-                                     'background-position': 'center',
-                                     'background-size': 'cover',
-                                     'min-width': (shape === 'landscape' ? '50%' : shape === 'portrait' ? '25%' : '25%'),
-                                     'max-width': (shape === 'landscape' ? '50%' : shape === 'portrait' ? '25%' : '25%'),             
-                                     'min-height': 0,
-                                     // 'padding-bottom': (shape === 'landscape' ? '25%' : shape === 'portrait' ? '50%' : '25%'),
-                                     'padding-bottom': (shape === 'landscape' ?  ( h * 4)+ 'px' : shape ==- 'portrait' ? ( h * 2) + 'px'  : ( h * 4) + 'px'), 
-                                     'height':0
-                                    });
-                                    $i.replaceWith($wrap)
-          });
+        var cells=2;
+  // $('header').each( function () {
+  //   var h = (this.offsetHeight||$(this).height()) + 'px';
+  //   $(this).css( { height: h, minHeight: h, maxHeight: h });
+  // })
+    $(function () {
+        if( $(window).width() < 900  ){
+          return;
         }
+        $container = $('.images');
+        $parent =  $container.parent('.sub-body');
+        var height = $parent.height();
+  
+
+        if( $container.length ){
+          
+            var $images = $container.children('img');
+            var total  = $images.length;
+            var loaded = 0;
+
+                if( total ){
+                      var complete = function () {
+                      var width = $container.width();
+                      var mult = (width / 2 ) * ( cells  / 2);
+                      $container.add( $parent ).css({height: mult, minHeight: mult ,maxHeight: mult, overflow: 'hidden'});
+                      $images.each( function () {
+                              var $i = $( this );
+                              var $wrap = $('<a>');
+                              var shape = $i.data('shape');
+                              var h = Math.floor( height / ($images.length*2)  );
+                              $wrap.addClass( "image-link  " + shape ).attr( 'href', $i.attr('src') );
+                              $wrap.css({ 'background-image': 'url(' + $i.attr('src') + ')'});
+                              $container.prepend( $wrap );
+                              $wrap.on('click', function  ( e ) {
+                                    e.preventDefault();
+                                    var $cl = $(this).clone(false).addClass('preview').appendTo('body')
+                                    $cl.one('click', function  (e) {
+                                                                            e.preventDefault();
+
+                                        $cl.remove();                                  })
+                                  $i.toggleClass('preview');
+                              });
+
+                                              
+                    });
+                    new Packery($container.get(0), { itemSelector: '.image-link', containerStyle: null});
+                  }
         $images.each( function ( ) {
           var $i = $( this );
           $i.css('opacity', 0).on('error', function () {
             loaded++;
           }).one('load', function () {      
             var w = $i.width(), h = $i.height(), klass = '';
+            cells+=1;
+            klass = 'square';
             if( w > h ){
               klass = 'landscape';
+              cells+=1;
             }else if( h > w){
               klass = 'portrait';
-            }else{
-              klass = 'square';
+              cells+=1;
             }
             $i.addClass(klass).data('shape', klass );
             if( ++loaded >= total ){

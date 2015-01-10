@@ -22,9 +22,10 @@ and Blueprint http://www.blueprintcss.org/
 */
 
 
-@import 'bower';
+/*@import 'bower';*/
+@import './cartesian/scss/main.scss';
 
-@import 'mixins';
+/*@import 'mixins';
 
 @import 'vars';
 
@@ -35,4 +36,4 @@ and Blueprint http://www.blueprintcss.org/
 @import 'type';
 
 @import 'moco';
-
+*/

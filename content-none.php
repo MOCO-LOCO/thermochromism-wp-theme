@@ -11,7 +11,9 @@
 <!-- Going with this fn: http://stackoverflow.com/questions/13517773/semantic-html-for-confirmation-error-and-warnings-messages -->
 <aside class="message info-message">
 
-  <strong class="title"><?php _e( 'Nothing Found', 'thermochromism' ); ?></strong>
+  <strong class="title">
+  	<?php _e( 'Nothing Found', 'thermochromism' ); ?>
+  </strong>
   
   <p class="body">
     	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>

@@ -1,6 +1,6 @@
 {
   "name": "packery",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "David DeSandro / Metafizzy",
   "description": "bin-packing layout library",
   "main": [
@@ -31,14 +31,14 @@
     "Gruntfile.js"
   ],
   "homepage": "https://github.com/metafizzy/packery",
-  "_release": "1.3.1",
+  "_release": "1.3.2",
   "_resolution": {
     "type": "version",
-    "tag": "v1.3.1",
-    "commit": "e36a785042d32954b35213c3d59126c28953f36f"
+    "tag": "v1.3.2",
+    "commit": "f5594862079b1eef258e6d35d1add1868135918a"
   },
   "_source": "git://github.com/metafizzy/packery.git",
-  "_target": "~1.3.1",
+  "_target": "~1.3.2",
   "_originalSource": "packery",
   "_direct": true
 }

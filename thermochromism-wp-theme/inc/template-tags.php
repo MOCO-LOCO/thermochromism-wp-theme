@@ -23,7 +23,8 @@ function thermochromism_post_share_links(  ){
   $facebook  = "<a title=\"Share on Facebook\" class=\"facebook\" href=\"$fburl\"><i class=\"fa fa-facebook\"></i></a>";
   $twitter   = "<a title=\"Share on Twitter\"  class=\"twitter\"  href=\"$twurl\"><i class=\"fa fa-twitter\"></i></a>";
   $tumblr   = "<a title=\"Share on Tumblr\"    class=\"tumblr\"   href=\"$tmurl\"><i class=\"fa fa-tumblr\"></i></a>";
-  echo '<span class="social">' . $facebook . $twitter . $tumblr. '</span>'; 
+  //echo '<span class="social">' . $facebook . $twitter . $tumblr. '</span>'; 
+  echo '<button class="open-share"><i class="fa fa-share-square-o"></i></button>';
 }
 
 function thermochromism_post_category_links(){
@@ -95,6 +96,7 @@ function thermochromism_post_header_meta_content(){
     <div class="meta">
       <?php 
         thermochromism_post_category_links(); 
+        echo '<span class="separator">|</span>';
         thermochromism_post_date_links(); 
         #thermochromism_post_author_links();
       ?>

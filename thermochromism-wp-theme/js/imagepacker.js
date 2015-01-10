@@ -5,13 +5,14 @@ window.viewportUnitsBuggyfill.init();
     $(this).css( { height: h, minHeight: h, maxHeight: h });
   })
   $(function () {
-    if( $(window).width() < 1024 ){
+    if( $(window).width() < 900  ){
       return;
     }
     $container = $('.images');
-    var height = $container.next('.text').height();
-    
-    $container.height( height );
+    $parent =  $container.parent('.sub-body');
+    var height = $parent.height();
+    $container.css( {height: height * 2, minHeight: height * 2, maxHeight: height * 2, overflowY:  'hidden' } );
+    $parent.css({minHeight:height * 2})
     if( $container.length ){
       var $images = $container.children('img');
       var total  = $images.length;
@@ -19,29 +20,33 @@ window.viewportUnitsBuggyfill.init();
       if( total ){
         var complete = function () {
           $images.sort( function ( a, b ) {
-            var aShape = $( a ).data('shape');
-            var bShape = $( b ).data('shape');
-            if( aShape > bShape ) return -1;
-            if( aShape < bShape ) return 1;
-            return 0;
+            // var aShape = $( a ).data('shape');
+            // var bShape = $( b ).data('shape');
+            // if( aShape > bShape ) return -1;
+            // if( aShape < bShape ) return 1;
+            // return 0;
+              return 1;
           }).detach().appendTo( $container ).each( function () {
             var $i = $( this );
                                     var $wrap = $('<a>');
                                     var shape = $i.data('shape');
                                     var h = Math.floor( height / ($images.length*2)  );
-                                    $wrap.addClass( "image-link " + shape ).attr( 'href', $i.attr('src') );
-                                    $wrap.css({
-                                     'background-image': 'url(' + $i.attr('src') + ')',
-                                     'background-position': 'center',
-                                     'background-size': 'cover',
-                                     'min-width': (shape === 'landscape' ? '50%' : shape === 'portrait' ? '25%' : '25%'),
-                                     'max-width': (shape === 'landscape' ? '50%' : shape === 'portrait' ? '25%' : '25%'),             
-                                     'min-height': 0,
-                                     // 'padding-bottom': (shape === 'landscape' ? '25%' : shape === 'portrait' ? '50%' : '25%'),
-                                     'padding-bottom': (shape === 'landscape' ?  ( h * 4)+ 'px' : shape ==- 'portrait' ? ( h * 2) + 'px'  : ( h * 4) + 'px'), 
-                                     'height':0
-                                    });
-                                    $i.replaceWith($wrap)
+                                    $wrap.addClass( "image-link  " + shape ).attr( 'href', $i.attr('src') );
+                                    $wrap.css({ 'background-image': 'url(' + $i.attr('src') + ')'});
+
+                                    // $wrap.css({
+                                    //  'background-image': 'url(' + $i.attr('src') + ')',
+                                    //  'background-position': 'center',
+                                    //  'background-size': 'cover',
+                                    //  'min-width': (shape === 'landscape' ? '100%' : shape === 'portrait' ? '50%' : '25%'),
+                                    //  'max-width': (shape === 'landscape' ? '100%' : shape === 'portrait' ? '50%' : '25%'),             
+                                    //  'min-height': 0,
+                                    //  // 'padding-bottom': (shape === 'landscape' ? '25%' : shape === 'portrait' ? '50%' : '25%'),
+                                    //  'padding-bottom': (shape === 'landscape' ?  ( h * 8)+ 'px' : shape ==- 'portrait' ? ( h * 2 ) + 'px'  : ( h * 2) + 'px'), 
+                                    //  'height':0
+                                    // });
+                                    $container.prepend($wrap);
+                                    
           });
         }
         $images.each( function ( ) {

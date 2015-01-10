@@ -8,13 +8,12 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('sub'); ?>>
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <header class="title" style="background-image:url('<?php thermochromism_post_header_image_src(); ?>');">
+    <header class="sub-head" style="background-image:url('<?php thermochromism_post_header_image_src(); ?>');">
 
-        <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+       <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
       	<?php thermochromism_post_header_meta_content(); ?>
 
     </header>
@@ -26,6 +25,5 @@
 
     </footer>
 
-  </article>
 	
 </article>

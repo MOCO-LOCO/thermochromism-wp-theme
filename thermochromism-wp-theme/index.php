@@ -13,27 +13,17 @@
 
 get_header(); ?>
 
-
-
-<header id="brand" style="background-image:url('<?php header_image(); ?>');">
-  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-      <h1 class="name"><?php bloginfo( 'name' ); ?></h1>
-      <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2>
-   </a>
-</header>
- 
-
 <ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins> 
 
-<main id="content">
+<main id="content" class="main-body">
 
-<?php 
-if ( have_posts() ) :
-  while ( have_posts() ) : the_post(); get_template_part( 'content', get_post_format() );endwhile; 
-	thermochromism_paging_nav();
-else :
-  get_template_part( 'content', 'none' );
-endif; ?>
+	<?php 
+	if ( have_posts() ) :
+  		while ( have_posts() ) : the_post(); get_template_part( 'content', get_post_format() );endwhile; 
+			thermochromism_paging_nav();
+		else :
+  			get_template_part( 'content', 'none' );
+	endif; ?>
 
 </main>
 

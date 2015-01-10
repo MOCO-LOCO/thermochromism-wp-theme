@@ -174,7 +174,8 @@ function thermochromism_scripts() {
     wp_enqueue_script( 'thermochromism-bower', get_bloginfo('template_directory') . '/js/bower.js' );
     
     wp_enqueue_script( 'thermochromism-imagepacker', get_bloginfo('template_directory') . '/js/imagepacker.js', array(), time(), true  );
-    
+        wp_enqueue_script( 'thermochromism-development', get_bloginfo('template_directory') . '/js/dev.js', array(), time(), true  );
+
     // # Tumblr Share
     //    wp_enqueue_script( 'thermochromism-share-on-tumblr', 'http://platform.tumblr.com/v1/share.js', array('jquery') );
     //    
@@ -209,6 +210,10 @@ add_action( 'wp_enqueue_scripts', 'thermochromism_scripts' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+/**
+ * Custom template tags for Moco.
+ */
+require get_template_directory() . '/inc/moco-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
