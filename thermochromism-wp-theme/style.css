@@ -178,6 +178,8 @@ header, main, footer, aside, ins, article, form, div, figure {
 
 body.single .main-head, body.page .main-head {
   display: none; }
+body.single .sub, body.single .sub.sub-body, body.single .main, body.single .main.sub-body, body.page .sub, body.page .sub.sub-body, body.page .main, body.page .main.sub-body {
+  max-height: none !important; }
 @media screen and (min-width: 900px) and (max-width: 1200px) {
   body.single .sub .sub-body, body.single .main .sub-body, body.page .sub .sub-body, body.page .main .sub-body {
     padding-left: calc( 100vw * 0.61803398875);
@@ -475,6 +477,8 @@ body.single .main-head, body.page .main-head {
       text-align: right;
       padding-right: 4rem;
       background: none; }
+      .timeline a:last-of-type:before {
+        display: none; }
       .timeline a:last-of-type:after {
         position: absolute;
         right: 1rem;
