@@ -27,22 +27,30 @@ googletag.cmd.push(function() {
     addSize([600, 100], [468, 60]). // Desktop    
     addSize([320, 50], [320, 50]). // Desktop        
     build();
-  var gptAdSlots = [];
+  
 
   // This mapping will only display ads when user is on mobile or tablet sized viewport
   var mapping2 = googletag.sizeMapping().
-    addSize([0, 0], []).
-    addSize([320, 700], [300, 250]). // Tablet
-    addSize([1050, 200], []). // Desktop
+    addSize([300, 50], [320,50]).
+    addSize([500, 100], [320, 100]). 
+    addSize([800, 200], [728,90]). 
+    addSize([900, 300], [970,250]). 
     build();
 
-  // googletag.defineSlot('/1007845/320x100', [320, 50], 'div-gpt-ad-1400338156009-0').addService(googletag.pubads()).setCollapseEmptyDiv(true);
-  // googletag.defineSlot('/1007845/300x250_Mobile', [300, 250], 'div-gpt-ad-1400338571847-0').addService(googletag.pubads()).setCollapseEmptyDiv(true);
-  // googletag.defineSlot('/1007845/moco_728x90_homepage', [728, 90], 'div-gpt-ad-1400338156009-0').addService(googletag.pubads()).setCollapseEmptyDiv(true);
-  gptAdSlots[0] = googletag.defineSlot('/1007845/moco_970x250_homepage', [970, 250], 'div-gpt-ad-1400338571847-0').addService(googletag.pubads()).setCollapseEmptyDiv(true);
-  gptAdSlots[0].defineSizeMapping( mapping1 );
-  gptAdSlots[0].setCollapseEmptyDiv( false );
-    
+
+
+var gptAdSlots = [
+  googletag.defineSlot(
+    '/1007845/320x100',
+     [320, 50], 
+     'div-gpt-ad-1400338156009-0'
+  ).defineSizeMapping(mapping2).addService(googletag.pubads() ).setCollapseEmptyDiv(true),
+  googletag.defineSlot('/1007845/300x250_Mobile', [300, 250], 'google-ad-square').defineSizeMapping(mapping2).addService(googletag.pubads()).setCollapseEmptyDiv(true),
+  googletag.defineSlot('/1007845/moco_728x90_homepage', [728, 90], 'google-ad-banner-a').defineSizeMapping(mapping2).addService(googletag.pubads()).setCollapseEmptyDiv(true),
+  googletag.defineSlot('/1007845/moco_970x250_homepage', [970, 250], 'google-ad-banner-b').defineSizeMapping(mapping2).addService(googletag.pubads()).setCollapseEmptyDiv(true)
+
+];
+
   googletag.pubads().addEventListener('slotRenderEnded', function(slotEvent) {
     console.log(slotEvent);
     if (slotEvent.isEmpty) {
@@ -55,5 +63,5 @@ googletag.cmd.push(function() {
 }); //cmd.push()
 
 googletag.cmd.push(function() { 
-      googletag.display('div-gpt-ad-1400338571847-0'); 
+      googletag.display(); 
 });
