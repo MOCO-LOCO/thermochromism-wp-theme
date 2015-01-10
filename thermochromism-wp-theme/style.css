@@ -393,7 +393,8 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
     min-width: 100%; }
   .sub .images img, .main .images img {
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    height: auto; }
 .sub .title, .sub .stat, .sub .text, .sub iframe, .sub embed, .main .title, .main .stat, .main .text, .main iframe, .main embed {
   position: relative;
   display: inline-block;
@@ -485,6 +486,7 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
         bottom: 2rem;
         content: "\f101"; }
       .timeline a:last-of-type:only-child {
+        min-width: 100%;
         padding-right: 2rem; }
         .timeline a:last-of-type:only-child:after {
           display: none; }
