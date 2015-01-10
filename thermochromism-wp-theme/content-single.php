@@ -14,9 +14,10 @@
    --><ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins><!-- 
    --><div class="sub-body">
       <?php the_content(); ?>
-  </div><!-- 
+      <!-- 
    --><footer class="sub-foot">
       <?php thermochromism_post_footer_meta_content(); ?>	
     </footer>
+  </div>
     
 </article>

@@ -210,6 +210,10 @@ add_action( 'wp_enqueue_scripts', 'thermochromism_scripts' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+/**
+ * Custom template tags for Moco.
+ */
+require get_template_directory() . '/inc/moco-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
