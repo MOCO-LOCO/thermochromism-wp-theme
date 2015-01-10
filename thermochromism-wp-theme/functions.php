@@ -15,7 +15,7 @@ if ( ! isset( $content_width ) ) {
 
 if ( ! function_exists( 'thermochromism_setup' ) ) :
 /**
- * Sets up theme defaults and registers support for various WordPress features.
+ * Sets up theme defaults and registers support for various ad features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
  * runs before the init hook. The init hook is too late for some features, such
@@ -168,8 +168,8 @@ function thermochromism_scripts() {
 
   # Dont load front-end in admin (esp. social)!
   if( !is_admin() ){
-    // wp_enqueue_script( 'thermochromism-adsbygoogle', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' );
-//    wp_enqueue_script( 'thermochromism-init-google-ads', get_bloginfo('template_directory') . '/js/init.googleads.js' );
+    wp_enqueue_script( 'thermochromism-adsbygoogle', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' );
+     wp_enqueue_script( 'thermochromism-init-google-ads', get_bloginfo('template_directory') . '/js/init.googleads.js' );
 
     wp_enqueue_script( 'thermochromism-bower', get_bloginfo('template_directory') . '/js/bower.js' );
     

@@ -1,8 +1,8 @@
-// (function ( adsbygoogle ) {
-//   if(!adsbygoogle){
-//     window.adsbygoogle = [{}];  
-//   }
-// })( window.adsbygoogle )
+(function ( adsbygoogle ) {
+  if(!adsbygoogle){
+    window.adsbygoogle = [{}];  
+  }
+})( window.adsbygoogle )
 
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
