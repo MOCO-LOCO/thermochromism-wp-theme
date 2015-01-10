@@ -12,7 +12,6 @@
 
 get_header(); ?>
 
-<ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins> 
     
 <main id="main" class="main-body" role="main">
 

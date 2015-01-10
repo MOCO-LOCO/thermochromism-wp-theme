@@ -12,7 +12,7 @@
     <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
     <?php thermochromism_post_header_meta_content(); ?>
 	</header>
-
+   	<ins class="google-ad" id="google-banner-a"></ins>
 	<div class="body">
 		<?php the_content(); ?>
 	</div>

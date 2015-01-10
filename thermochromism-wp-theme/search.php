@@ -9,7 +9,7 @@ get_header(); ?>
 
 
      
-<ins class="google-ad"></ins>
+<ins class="google-ad" id="google-banner-a"></ins> 
 
 <main id="main" class="main-body">
 

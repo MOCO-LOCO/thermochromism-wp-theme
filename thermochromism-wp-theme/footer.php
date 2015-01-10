@@ -12,7 +12,7 @@
 	<?php moco_advertise_on_moco(); ?>
 </aside> 
   
-<ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins> 
+<ins class="google-ad" id="google-banner-b"></ins>
   
 
 
