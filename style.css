@@ -120,8 +120,10 @@ header, main, footer, aside, ins, article, form, div, figure {
   height: 38.196601125vh;
   min-height: 38.196601125vh;
   max-height: 38.196601125vh;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  text-align: center; }
   .google-ad div, .google-ad div iframe {
+    display: inline-block;
     min-height: 100%;
     max-width: 100%; }
 
