@@ -11,7 +11,7 @@
       <?php the_title( sprintf( '<h1 class="title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
     	<?php thermochromism_post_header_meta_content(); ?>
   </header><!-- 
-   --><ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins><!-- 
+   --><ins class="google-ad" id="google-banner-a"></ins><!-- 
    --><div class="sub-body">
       <?php the_content(); ?>
       <!-- 

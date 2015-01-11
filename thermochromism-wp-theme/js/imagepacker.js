@@ -43,7 +43,7 @@ window.viewportUnitsBuggyfill.init();
 
                                               
                     });
-                    new Packery($container.get(0), { itemSelector: '.image-link', containerStyle: null});
+                    new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
                   }
         $images.each( function ( ) {
           var $i = $( this );

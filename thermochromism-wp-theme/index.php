@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-<ins class="google-ad" id="div-gpt-ad-1400338571847-0"></ins> 
+<ins class="google-ad" id="google-banner-a"></ins> 
 
 <main id="content" class="main-body">
 

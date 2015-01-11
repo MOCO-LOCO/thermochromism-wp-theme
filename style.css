@@ -116,17 +116,6 @@ header, main, footer, aside, ins, article, form, div, figure {
   max-height: 61.803398875vh;
   overflow-y: hidden; }
 
-.google-ad {
-  height: 38.196601125vh;
-  min-height: 38.196601125vh;
-  max-height: 38.196601125vh;
-  overflow-y: hidden;
-  text-align: center; }
-  .google-ad div, .google-ad div iframe {
-    display: inline-block;
-    min-height: 100%;
-    max-width: 100%; }
-
 .main-body, .sub-body {
   position: relative;
   display: inline-block;
@@ -413,89 +402,6 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
   .sub .title:last-child, .sub .stat:last-child, .sub .text:last-child, .sub iframe:last-child, .sub embed:last-child, .main .title:last-child, .main .stat:last-child, .main .text:last-child, .main iframe:last-child, .main embed:last-child {
     padding-bottom: 2rem; }
 
-.timeline {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0;
-  padding: 0;
-  /*min-height:100%;*/
-  width: 100%; }
-  .timeline img {
-    min-width: 100%; }
-  .timeline a {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0;
-    padding: 0;
-    text-indent: 0;
-    padding: 2rem 2rem 0;
-    padding-bottom: 2rem;
-    display: inline-block;
-    width: 100%;
-    word-break: break-word; }
-    .timeline a img {
-      min-width: 100%; }
-    .timeline a:last-child {
-      padding-bottom: 2rem; }
-    .timeline a cite {
-      color: black; }
-    @media screen and (min-width: 900px) and (max-width: 1200px) {
-      .timeline a {
-        width: 50%; }
-        .timeline a:first-of-type {
-          background: none !important;
-          border-right: 1px solid #5A0083; } }
-    @media screen and (min-width: 1200px) and (max-width: 1500px) {
-      .timeline a {
-        width: 50%; }
-        .timeline a:first-of-type {
-          background: none !important;
-          border-right: 1px solid #5A0083; } }
-    @media screen and (min-width: 1500px) {
-      .timeline a {
-        width: 50%; }
-        .timeline a:first-of-type {
-          background: none !important;
-          border-right: 1px solid #5A0083; } }
-    @media screen and (min-width: 2000px) {
-      .timeline a {
-        width: 50%; }
-        .timeline a:first-of-type {
-          background: none !important;
-          border-right: 1px solid #5A0083; } }
-    .timeline a:before, .timeline a:after {
-      display: block;
-      font-size: 2rem;
-      width: 2rem;
-      height: 2rem;
-      font-family: FontAwesome; }
-    .timeline a:first-of-type {
-      padding-left: 4rem;
-      background: rgba(90, 0, 131, 0.1); }
-      .timeline a:first-of-type:before {
-        position: absolute;
-        top: 1rem;
-        left: 2rem;
-        content: "\f100"; }
-    .timeline a:last-of-type {
-      text-align: right;
-      padding-right: 4rem;
-      background: none; }
-      .timeline a:last-of-type:before {
-        display: none; }
-      .timeline a:last-of-type:after {
-        position: absolute;
-        right: 1rem;
-        bottom: 2rem;
-        content: "\f101"; }
-      .timeline a:last-of-type:only-child {
-        min-width: 100%;
-        padding-right: 2rem; }
-        .timeline a:last-of-type:only-child:after {
-          display: none; }
-
 /* theme */
 h1, h2, h3, h4, h5, h6 {
   color: black;
@@ -523,6 +429,17 @@ a {
   text-align: center;
   letter-spacing: 0.1rem;
   padding: 0.5rem; }
+
+.google-ad {
+  height: 38.196601125vh;
+  min-height: 38.196601125vh;
+  max-height: 38.196601125vh;
+  overflow-y: hidden;
+  text-align: center; }
+  .google-ad div, .google-ad div iframe {
+    display: inline-block;
+    min-height: 100%;
+    max-width: 100%; }
 
 /* Headers */
 .main-head, .sub-head {
@@ -647,8 +564,96 @@ a {
     .image-link {
       display: inline-block; } }
 
+/* Timeline */
+.timeline {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  /*min-height:100%;*/
+  width: 100%;
+  border: 1px solid #5A0083;
+  border-right: 0;
+  border-left: 0; }
+  .timeline img {
+    min-width: 100%; }
+  .timeline a {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    padding: 2rem 2rem 0;
+    padding-bottom: 2rem;
+    display: inline-block;
+    width: 100%;
+    word-break: break-word; }
+    .timeline a img {
+      min-width: 100%; }
+    .timeline a:last-child {
+      padding-bottom: 2rem; }
+    .timeline a cite {
+      color: black; }
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      .timeline a {
+        width: 50%; }
+        .timeline a:first-of-type {
+          background: none !important;
+          border-right: 1px solid #5A0083; } }
+    @media screen and (min-width: 1200px) and (max-width: 1500px) {
+      .timeline a {
+        width: 50%; }
+        .timeline a:first-of-type {
+          background: none !important;
+          border-right: 1px solid #5A0083; } }
+    @media screen and (min-width: 1500px) {
+      .timeline a {
+        width: 50%; }
+        .timeline a:first-of-type {
+          background: none !important;
+          border-right: 1px solid #5A0083; } }
+    @media screen and (min-width: 2000px) {
+      .timeline a {
+        width: 50%; }
+        .timeline a:first-of-type {
+          background: none !important;
+          border-right: 1px solid #5A0083; } }
+    .timeline a:before, .timeline a:after {
+      display: block;
+      font-size: 2rem;
+      width: 2rem;
+      height: 2rem;
+      font-family: FontAwesome; }
+    .timeline a:first-of-type {
+      padding-left: 4rem;
+      background: rgba(90, 0, 131, 0.1); }
+      .timeline a:first-of-type:before {
+        position: absolute;
+        top: 1rem;
+        left: 2rem;
+        content: "\f100"; }
+    .timeline a:last-of-type {
+      text-align: right;
+      padding-right: 4rem;
+      background: none; }
+      .timeline a:last-of-type:before {
+        display: none; }
+      .timeline a:last-of-type:after {
+        position: absolute;
+        right: 1rem;
+        bottom: 2rem;
+        content: "\f101"; }
+      .timeline a:last-of-type:only-child {
+        min-width: 100%;
+        padding-right: 2rem; }
+        .timeline a:last-of-type:only-child:after {
+          display: none; }
+
 /* Fat Foot */
 .main-foot {
+  border-top: 2px solid rgba(90, 0, 131, 0.15);
   color: #12001a;
   background: rgba(90, 0, 131, 0.1); }
   .main-foot .copyright {
