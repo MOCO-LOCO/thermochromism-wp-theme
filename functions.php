@@ -168,7 +168,7 @@ function thermochromism_scripts() {
 
   # Dont load front-end in admin (esp. social)!
   if( !is_admin() ){
-    wp_enqueue_script( 'thermochromism-adsbygoogle', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' );
+     //wp_enqueue_script( 'thermochromism-adsbygoogle', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' );
      wp_enqueue_script( 'thermochromism-init-google-ads', get_bloginfo('template_directory') . '/js/init.googleads.js' );
 
     wp_enqueue_script( 'thermochromism-bower', get_bloginfo('template_directory') . '/js/bower.js' );
