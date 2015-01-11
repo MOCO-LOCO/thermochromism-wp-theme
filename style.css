@@ -121,6 +121,9 @@ header, main, footer, aside, ins, article, form, div, figure {
   min-height: 38.196601125vh;
   max-height: 38.196601125vh;
   overflow-y: hidden; }
+  .google-ad div, .google-ad div iframe {
+    min-height: 100%;
+    max-width: 100%; }
 
 .main-body, .sub-body {
   position: relative;
