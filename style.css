@@ -321,11 +321,11 @@ a {
 
 .google-ad {
   padding: 2rem 0;
-  text-align: center; }
+  text-align: center;
+  min-width: 100vh; }
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
     min-height: calc( 4rem + 250px);
-    min-width: 900px;
     width: auto; }
   .google-ad#google-banner-a {
     min-height: calc( 4rem + 250px);
