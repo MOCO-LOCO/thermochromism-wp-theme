@@ -393,6 +393,8 @@ a {
     overflow-y: hidden;
     background: rgba(0, 0, 0, 0.618034);
     z-index: 1; }
+    .main-head:before:hover, .main-head:before:active, .sub-head:before:hover, .sub-head:before:active {
+      background: rgba(255, 0, 0, 0.618034); }
   .main-head .share-out, .sub-head .share-out {
     position: relative;
     display: inline-block;
