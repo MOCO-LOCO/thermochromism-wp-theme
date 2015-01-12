@@ -742,6 +742,10 @@ body {
   /*min-height:100%;*/
   width: 100%;
   background: rgba(255, 254, 255, 0.9);
+  background-image: url('images/purple-moco.png');
+  background-size: contain;
+  background-position: 2rem;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
@@ -782,6 +786,10 @@ body {
       padding-top: 5rem;
       padding-left: 0;
       background: #FFFEFF;
+      background-image: url('images/purple-moco.png');
+      background-size: contain;
+      background-position: calc(100% - 1rem);
+      background-repeat: no-repeat;
       transition: all 0.1s ease-in-out; }
       #navigation a {
         display: block;
