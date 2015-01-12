@@ -327,6 +327,7 @@ a {
 .btn, button, html .main-foot div#pjb_mini ul#post_more li a, input[type=button], input[type=submit] {
   color: #ffffff;
   background: #48006a;
+  border: 0;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.03);
   font-family: Futura, 'Trebuchet MS', Arial, 'sans-serif';
   font-weight: bold;
