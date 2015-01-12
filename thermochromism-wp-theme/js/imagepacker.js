@@ -32,11 +32,12 @@ window.viewportUnitsBuggyfill.init();
                               $wrap.css({ 'background-image': 'url(' + $i.attr('src') + ')'});
                               $container.prepend( $wrap );
                               $wrap.on('click', function  ( e ) {
+                                    $('#navigation').hide()
                                     e.preventDefault();
                                     var $cl = $(this).clone(false).addClass('preview').appendTo('body')
                                     $cl.one('click', function  (e) {
                                                                             e.preventDefault();
-
+                                        $('#navigation').show()
                                         $cl.remove();                                  })
                                   $i.toggleClass('preview')
                               });
