@@ -22,6 +22,7 @@ and Blueprint http://www.blueprintcss.org/
 */
 /*@import 'bower';*/
 /* Defaul Theme */
+/* color utils */
 /* Utils */
 /* Boxes */
 /* simple @media */
@@ -362,7 +363,8 @@ a {
   color: #FFFEFF;
   font-family: Futura, 'Trebuchet MS', Arial, 'sans-serif';
   font-weight: normal;
-  text-shadow: 1px 1px 1px #1a1a1a; }
+  text-shadow: 1px 1px 1px #1a1a1a;
+  overflow: hidden; }
   .main-head > *, .sub-head > * {
     z-index: 10;
     position: relative; }
@@ -465,6 +467,26 @@ a {
 .main-head:before {
   background-color: rgba(255, 255, 255, 0.7); }
 
+body.home .sub:nth-of-type(8n+1):hover .sub-head:before, body.blog .sub:nth-of-type(8n+1):hover .sub-head:before, body.archive .sub:nth-of-type(8n+1):hover .sub-head:before, body.search .sub:nth-of-type(8n+1):hover .sub-head:before {
+  background: rgba(102, 0, 0, 0.618034); }
+body.home .sub:nth-of-type(8n+2):hover .sub-head:before, body.blog .sub:nth-of-type(8n+2):hover .sub-head:before, body.archive .sub:nth-of-type(8n+2):hover .sub-head:before, body.search .sub:nth-of-type(8n+2):hover .sub-head:before {
+  background: rgba(102, 40, 0, 0.618034); }
+body.home .sub:nth-of-type(8n+3):hover .sub-head:before, body.blog .sub:nth-of-type(8n+3):hover .sub-head:before, body.archive .sub:nth-of-type(8n+3):hover .sub-head:before, body.search .sub:nth-of-type(8n+3):hover .sub-head:before {
+  background: rgba(95, 83, 5, 0.618034); }
+body.home .sub:nth-of-type(8n+4):hover .sub-head:before, body.blog .sub:nth-of-type(8n+4):hover .sub-head:before, body.archive .sub:nth-of-type(8n+4):hover .sub-head:before, body.search .sub:nth-of-type(8n+4):hover .sub-head:before {
+  background: rgba(29, 108, 0, 0.618034); }
+body.home .sub:nth-of-type(8n+5):hover .sub-head:before, body.blog .sub:nth-of-type(8n+5):hover .sub-head:before, body.archive .sub:nth-of-type(8n+5):hover .sub-head:before, body.search .sub:nth-of-type(8n+5):hover .sub-head:before {
+  background: rgba(0, 150, 150, 0.618034); }
+body.home .sub:nth-of-type(8n+6):hover .sub-head:before, body.blog .sub:nth-of-type(8n+6):hover .sub-head:before, body.archive .sub:nth-of-type(8n+6):hover .sub-head:before, body.search .sub:nth-of-type(8n+6):hover .sub-head:before {
+  background: rgba(19, 0, 102, 0.618034); }
+body.home .sub:nth-of-type(8n+7):hover .sub-head:before, body.blog .sub:nth-of-type(8n+7):hover .sub-head:before, body.archive .sub:nth-of-type(8n+7):hover .sub-head:before, body.search .sub:nth-of-type(8n+7):hover .sub-head:before {
+  background: rgba(0, 0, 0, 0.618034); }
+body.home .sub:nth-of-type(8n+8):hover .sub-head:before, body.blog .sub:nth-of-type(8n+8):hover .sub-head:before, body.archive .sub:nth-of-type(8n+8):hover .sub-head:before, body.search .sub:nth-of-type(8n+8):hover .sub-head:before {
+  background: rgba(102, 0, 102, 0.618034); }
+
+/*
+  Content
+*/
 /* Image Gallery */
 .image-link {
   display: none;
