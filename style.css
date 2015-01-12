@@ -246,7 +246,7 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
     max-width: 100%;
     width: 100%;
     height: auto; }
-.sub .title, .sub .stat, .sub .text, .sub iframe, .sub embed, .main .title, .main .stat, .main .text, .main iframe, .main embed {
+.sub .title, .sub .stat, .sub .text, .sub embed, .main .title, .main .stat, .main .text, .main embed {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -254,9 +254,9 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
   padding: 0;
   text-indent: 0;
   padding: 2rem 2rem 0; }
-  .sub .title img, .sub .stat img, .sub .text img, .sub iframe img, .sub embed img, .main .title img, .main .stat img, .main .text img, .main iframe img, .main embed img {
+  .sub .title img, .sub .stat img, .sub .text img, .sub embed img, .main .title img, .main .stat img, .main .text img, .main embed img {
     min-width: 100%; }
-  .sub .title:last-child, .sub .title:only-child, .sub .stat:last-child, .sub .stat:only-child, .sub .text:last-child, .sub .text:only-child, .sub iframe:last-child, .sub iframe:only-child, .sub embed:last-child, .sub embed:only-child, .main .title:last-child, .main .title:only-child, .main .stat:last-child, .main .stat:only-child, .main .text:last-child, .main .text:only-child, .main iframe:last-child, .main iframe:only-child, .main embed:last-child, .main embed:only-child {
+  .sub .title:last-child, .sub .title:only-child, .sub .stat:last-child, .sub .stat:only-child, .sub .text:last-child, .sub .text:only-child, .sub embed:last-child, .sub embed:only-child, .main .title:last-child, .main .title:only-child, .main .stat:last-child, .main .stat:only-child, .main .text:last-child, .main .text:only-child, .main embed:last-child, .main embed:only-child {
     padding-bottom: 2rem; }
 
 /*--------------------------------------------------------------
@@ -338,8 +338,7 @@ a {
 .google-ad {
   text-align: center;
   min-width: 100vw;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 2rem 0;
   overflow: hidden; }
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
