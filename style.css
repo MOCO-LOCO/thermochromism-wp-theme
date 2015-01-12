@@ -477,14 +477,14 @@ a {
         display: none; }
  }
 
-#brand {
+#brand, #brand .name {
   display: none; }
 
 .home #brand {
   display: block;
-  height: 38.196601125vh;
-  min-height: 38.196601125vh;
-  max-height: 38.196601125vh;
+  height: 61.803398875vh;
+  min-height: 61.803398875vh;
+  max-height: 61.803398875vh;
   overflow-y: hidden;
   background-image: url('images/stripes.png');
   background-position: center;
