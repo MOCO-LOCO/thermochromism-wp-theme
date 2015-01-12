@@ -108,6 +108,19 @@ header, main, footer, aside, ins, article, form, div, figure {
   header img, main img, footer img, aside img, ins img, article img, form img, div img, figure img {
     min-width: 100%; }
 
+form {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  padding: 2rem 2rem 0; }
+  form img {
+    min-width: 100%; }
+  form:last-child, form:only-child {
+    padding-bottom: 2rem; }
+
 .main-head, .sub-head {
   height: 61.803398875vh;
   min-height: 61.803398875vh;
@@ -249,7 +262,7 @@ body.single .sub, body.single .sub.sub-body, body.single .main, body.single .mai
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
-button, html .main-foot div#pjb_mini ul#post_more li a, input, select, textarea {
+input, select, textarea {
   font-size: 100%;
   /* Corrects font size not being inherited in all browsers */
   margin: 0;
@@ -257,7 +270,7 @@ button, html .main-foot div#pjb_mini ul#post_more li a, input, select, textarea 
   vertical-align: baseline;
   /* Improves appearance and consistency in all browsers */ }
 
-button, html .main-foot div#pjb_mini ul#post_more li a, input[type="button"], input[type="reset"], input[type="submit"] {
+input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */ }
 
@@ -311,7 +324,7 @@ a {
   color: #48006a;
   text-decoration: none; }
 
-.btn, button, html .main-foot div#pjb_mini ul#post_more li a {
+.btn, button, html .main-foot div#pjb_mini ul#post_more li a, input[type=button], input[type=submit] {
   color: #ffffff;
   background: #48006a;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.03);
@@ -330,6 +343,8 @@ a {
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
     min-height: calc( 4rem + 250px); }
+  .google-ad div {
+    width: auto; }
   .google-ad#google-banner-a {
     min-height: calc( 4rem + 250px);
     max-height: calc( 4rem + 250px);
@@ -351,7 +366,7 @@ a {
  }
 
 /* Headers */
-.main-head, .sub-head {
+#brand, .sub-head {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -360,28 +375,28 @@ a {
   font-weight: normal;
   text-shadow: 1px 1px 1px #1a1a1a;
   overflow: hidden; }
-  .main-head > *, .sub-head > * {
+  #brand > *, .sub-head > * {
     z-index: 10;
     position: relative; }
-  .main-head a, .sub-head a {
+  #brand a, .sub-head a {
     color: #EEBB00; }
-  .main-head h1, .main-head h2, .main-head h1 a, .main-head h2 a, .sub-head h1, .sub-head h2, .sub-head h1 a, .sub-head h2 a {
+  #brand h1, #brand h2, #brand h1 a, #brand h2 a, .sub-head h1, .sub-head h2, .sub-head h1 a, .sub-head h2 a {
     color: inherit;
     font-family: inherit;
     outline: none; }
-  .main-head .title, .sub-head .title {
+  #brand .title, .sub-head .title {
     word-break: break-word;
     min-height: 1em;
     max-height: 7.99016994375em;
     overflow-y: hidden; }
-  .main-head .separator, .sub-head .separator {
+  #brand .separator, .sub-head .separator {
     display: inline-block;
     color: #fff;
     font-family: monospace;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.618034);
     margin-left: 0.5em;
     margin-right: 0.5em; }
-  .main-head:before, .sub-head:before {
+  #brand:before, .sub-head:before {
     content: ' ';
     display: block;
     position: absolute;
@@ -397,9 +412,9 @@ a {
     overflow-y: hidden;
     background: rgba(0, 0, 0, 0.618034);
     z-index: 1; }
-    .main-head:before:hover, .main-head:before:active, .sub-head:before:hover, .sub-head:before:active {
+    #brand:before:hover, #brand:before:active, .sub-head:before:hover, .sub-head:before:active {
       background: rgba(255, 0, 0, 0.618034); }
-  .main-head .share-out, .sub-head .share-out {
+  #brand .share-out, .sub-head .share-out {
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -413,11 +428,11 @@ a {
     bottom: 0;
     padding-bottom: 2rem;
     width: 4rem; }
-    .main-head .share-out img, .sub-head .share-out img {
+    #brand .share-out img, .sub-head .share-out img {
       min-width: 100%; }
-    .main-head .share-out:last-child, .main-head .share-out:only-child, .sub-head .share-out:last-child, .sub-head .share-out:only-child {
+    #brand .share-out:last-child, #brand .share-out:only-child, .sub-head .share-out:last-child, .sub-head .share-out:only-child {
       padding-bottom: 2rem; }
-    .main-head .share-out .open-share, .sub-head .share-out .open-share {
+    #brand .share-out .open-share, .sub-head .share-out .open-share {
       background: rgba(238, 187, 0, 0.618034);
       border: 0;
       padding: 0.5rem;
@@ -435,12 +450,12 @@ a {
       overflow: hidden;
       -webkit-transform: translate3d(0, 0, 0);
       -webkit-transition: -webkit-transform 0.1s; }
-      .main-head .share-out .open-share:active, .main-head .share-out .open-share:focus, .main-head .share-out .open-share:hover, .sub-head .share-out .open-share:active, .sub-head .share-out .open-share:focus, .sub-head .share-out .open-share:hover {
+      #brand .share-out .open-share:active, #brand .share-out .open-share:focus, #brand .share-out .open-share:hover, .sub-head .share-out .open-share:active, .sub-head .share-out .open-share:focus, .sub-head .share-out .open-share:hover {
         outline: none;
         background: #EEBB00; }
-      .main-head .share-out .open-share:active, .sub-head .share-out .open-share:active {
+      #brand .share-out .open-share:active, .sub-head .share-out .open-share:active {
         -webkit-transform: scale(1.5); }
-  .main-head .meta, .sub-head .meta {
+  #brand .meta, .sub-head .meta {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -451,39 +466,65 @@ a {
     overflow-x: hidden;
     text-overflow: ellipsis; }
     @media screen and (min-width: 600px) and (max-width: 900px) {
-      .main-head .meta .categories, .sub-head .meta .categories {
+      #brand .meta .categories, .sub-head .meta .categories {
         min-width: none;
         max-width: calc(100% - 5rem);
         overflow-x: hidden;
         display: block; }
 
-      .main-head .meta .separator, .sub-head .meta .separator {
+      #brand .meta .separator, .sub-head .meta .separator {
         display: none; }
  }
 
-.main-head:before {
-  background-color: none; }
+#brand {
+  display: none; }
 
-.main-head#brand {
+.home #brand {
+  display: block;
+  height: 38.196601125vh;
+  min-height: 38.196601125vh;
+  max-height: 38.196601125vh;
+  overflow-y: hidden;
   background-image: url('images/stripes.png');
   background-position: center;
   background-size: auto;
   background-repeat: repeat;
   background-attachment: fixed;
   border-bottom: 2px solid #5A0083; }
-  .main-head#brand:before {
+  .home #brand:before {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    /*min-height:100%;*/
+    width: 100%;
     background-color: rgba(255, 255, 255, 0);
     background-repeat: no-repeat;
     background-image: url('images/logo-hole.png');
     background-attachment: normal;
     background-size: cover;
     background-position: top center; }
+    .home #brand:before img {
+      min-width: 100%; }
     @media screen and (min-width: 900px) {
-      .main-head#brand:before {
+      .home #brand:before {
         background-size: cover;
         background-image: url('images/logo-hole-wide.png'); } }
-  .main-head#brand a {
-    display: none; }
+  .home #brand a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%; }
+    .home #brand a .tagline {
+      color: #5A0083;
+      position: absolute;
+      bottom: 2rem;
+      margin: 0;
+      width: 100%;
+      text-align: center; }
 
 body.home .sub:nth-of-type(8n+1):hover .sub-head:before, body.blog .sub:nth-of-type(8n+1):hover .sub-head:before, body.archive .sub:nth-of-type(8n+1):hover .sub-head:before, body.search .sub:nth-of-type(8n+1):hover .sub-head:before {
   background: rgba(128, 0, 0, 0.618034); }
@@ -613,6 +654,9 @@ body.home .sub:nth-of-type(8n+8):hover .sub-head:before, body.blog .sub:nth-of-t
       padding-bottom: 2rem; }
     .main-foot .info h1, .main-foot .promo h1 {
       margin-bottom: 2rem; }
+    @media screen and (max-width: 900px) {
+      .main-foot .info, .main-foot .promo {
+        text-align: center; } }
     @media screen and (min-width: 900px) {
       .main-foot .info, .main-foot .promo {
         min-width: calc(100%/3 - 2rem);
@@ -788,8 +832,8 @@ body {
       padding-left: 0;
       background: #FFFEFF;
       background-image: url('images/purple-moco.png');
-      background-size: contain;
-      background-position: calc(100% - 1rem);
+      background-size: 4rem;
+      background-position: calc(100% - 1rem) 0.5rem;
       background-repeat: no-repeat;
       transition: all 0.1s ease-in-out; }
       #navigation a {

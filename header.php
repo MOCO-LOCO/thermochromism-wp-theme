@@ -33,7 +33,7 @@
 <body <?php body_class('main'); ?>>
 
  <header id="brand" class="main-head">
-  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="background-image:url('<?php header_image(); ?>');">
+  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
       <h1 class="name"><?php bloginfo( 'name' ); ?></h1>
       <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2>
    </a>
