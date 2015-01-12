@@ -320,17 +320,8 @@ a {
   padding: 0.5rem; }
 
 .google-ad {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0;
-  padding: 0;
-  /*min-height:100%;*/
-  width: 100%;
   padding: 2rem 0;
   text-align: center; }
-  .google-ad img {
-    min-width: 100%; }
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
     min-height: calc( 4rem + 250px);
