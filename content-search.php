@@ -18,12 +18,7 @@
 
     </header>
 
-    <footer class="meta">
-
-    	<?php thermochromism_post_footer_meta_content(); ?>
-      <aside class="small party"></aside>
-
-    </footer>
+    <footer class="meta"><?php thermochromism_post_footer_meta_content(); ?></footer>
 
 	
 </article>

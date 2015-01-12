@@ -107,13 +107,8 @@ function thermochromism_post_header_meta_content(){
 
 function thermochromism_post_footer_meta_content(){
   if ( 'post' != get_post_type() ){  return ''; }
-  ?>
-  
-    
-      <?php thermochromism_post_tag_links(); ?>
-      <aside class="party"></aside>
-    
-  <?php
+     thermochromism_post_tag_links();
+      //print '<aside class="party"></aside>';
 }
 
 function thermochromism_page_footer_meta_content(){

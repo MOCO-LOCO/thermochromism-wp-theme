@@ -22,7 +22,7 @@
   <!-- font_awesome: -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <?php 
-    	//<script src="//localhost:35729/livereload.js"></script> 
+    	echo '<script src="//localhost:35729/livereload.js"></script> ';
     ?>
 
   <!-- /font_awesome -->

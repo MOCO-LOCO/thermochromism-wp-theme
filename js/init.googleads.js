@@ -12,7 +12,7 @@
   })();
 
   googletag.cmd.push(function() {
-        if(window.innerWidth < 600 ){
+        if(window.innerWidth < 800 ){
         googletag.defineSlot('/1007845/320x100', [320, 50], 'google-banner-b').addService(googletag.pubads()).setCollapseEmptyDiv(true);
         googletag.defineSlot('/1007845/300x250_Mobile', [300, 250], 'google-banner-a').addService(googletag.pubads()).setCollapseEmptyDiv(true);        
       }else{
