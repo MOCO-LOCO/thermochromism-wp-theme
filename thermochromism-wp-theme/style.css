@@ -838,7 +838,7 @@ body {
       background-size: 4rem;
       background-position: calc(100% - 1rem) 0.5rem;
       background-repeat: no-repeat;
-      transition: all 0.1s ease-in-out; }
+      transition: all 0.3s ease-in-out; }
       #navigation a {
         display: block;
         color: #48006a;
