@@ -322,7 +322,8 @@ a {
 .google-ad {
   padding: 2rem 0;
   text-align: center;
-  min-width: 100vh; }
+  min-width: 100vh;
+  overflow: hidden; }
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
     min-height: calc( 4rem + 250px);
