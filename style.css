@@ -329,8 +329,7 @@ a {
   overflow: hidden; }
   .google-ad div, .google-ad div iframe, .google-ad > * {
     display: inline-block;
-    min-height: calc( 4rem + 250px);
-    width: auto; }
+    min-height: calc( 4rem + 250px); }
   .google-ad#google-banner-a {
     min-height: calc( 4rem + 250px);
     max-height: calc( 4rem + 250px);
