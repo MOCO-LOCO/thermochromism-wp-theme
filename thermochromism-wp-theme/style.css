@@ -121,7 +121,7 @@ header, main, footer, aside, ins, article, form, div, figure {
   #comments:last-child, #comments:only-child {
     padding-bottom: 2rem; }
 
-.main-head, .sub-head {
+.sub-head {
   height: 61.803398875vh;
   min-height: 61.803398875vh;
   max-height: 61.803398875vh;
@@ -453,7 +453,8 @@ a {
       -webkit-transition: -webkit-transform 0.1s; }
       #brand .share-out .open-share:active, #brand .share-out .open-share:focus, #brand .share-out .open-share:hover, .sub-head .share-out .open-share:active, .sub-head .share-out .open-share:focus, .sub-head .share-out .open-share:hover {
         outline: none;
-        background: #EEBB00; }
+        background: #EEBB00;
+        color: rgba(0, 0, 0, 0.9); }
       #brand .share-out .open-share:active, .sub-head .share-out .open-share:active {
         -webkit-transform: scale(1.5); }
   #brand .meta, .sub-head .meta {
@@ -480,11 +481,14 @@ a {
 html body.page .sub .sub-head:before {
   background: rgba(90, 0, 131, 0.618034); }
 
+.main-head {
+  background: rgba(90, 0, 131, 0.1); }
+
 #brand, #brand .name {
   display: none; }
 
 .home #brand {
-  display: block;
+  display: none;
   height: 61.803398875vh;
   min-height: 61.803398875vh;
   max-height: 61.803398875vh;
@@ -895,10 +899,10 @@ body {
             font-family: FontAwesome;
             content: "\f00d";
             color: #ffffff;
-            font-size: 4rem;
+            font-size: 3rem;
             color: #fff;
             position: absolute;
-            top: 0.66666666667rem;
+            top: 1rem;
             left: 0;
             width: 100%;
             text-align: center; } }
