@@ -108,7 +108,7 @@ header, main, footer, aside, ins, article, form, div, figure {
   header img, main img, footer img, aside img, ins img, article img, form img, div img, figure img {
     min-width: 100%; }
 
-form {
+#comments {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -116,9 +116,9 @@ form {
   padding: 0;
   text-indent: 0;
   padding: 2rem 2rem 0; }
-  form img {
+  #comments img {
     min-width: 100%; }
-  form:last-child, form:only-child {
+  #comments:last-child, #comments:only-child {
     padding-bottom: 2rem; }
 
 .main-head, .sub-head {
@@ -477,6 +477,9 @@ a {
         display: none; }
  }
 
+html body.page .sub .sub-head:before {
+  background: rgba(90, 0, 131, 0.618034); }
+
 #brand, #brand .name {
   display: none; }
 
@@ -585,7 +588,8 @@ body.home .sub:nth-of-type(8n+8):hover .sub-head:before, body.blog .sub:nth-of-t
     .timeline a:last-child, .timeline a:only-child {
       padding-bottom: 2rem; }
     .timeline a cite {
-      color: black; }
+      color: black;
+      font-family: Futura, 'Trebuchet MS', Arial, 'sans-serif'; }
     @media screen and (min-width: 900px) {
       .timeline a {
         width: 50%; }
@@ -791,10 +795,6 @@ body {
   /*min-height:100%;*/
   width: 100%;
   background: rgba(255, 254, 255, 0.9);
-  background-image: url('images/purple-moco.png');
-  background-size: 3rem;
-  background-position: 1rem 1rem;
-  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   left: 0;
@@ -806,7 +806,7 @@ body {
   width: 100%;
   font-size: 1rem;
   line-height: 1;
-  text-align: center;
+  text-align: left;
   padding-left: 10rem;
   transition: margin-top 0.2s ease-in-out; }
   #navigation img {
@@ -830,15 +830,28 @@ body {
     top: 0;
     left: 0;
     display: none; }
+  #navigation a.go-home {
+    position: absolute;
+    min-width: 4rem;
+    max-width: 4rem;
+    overflow-x: hidden;
+    min-height: 4rem;
+    max-height: 4rem;
+    overflow-y: hidden;
+    margin-bottom: 2rem;
+    top: 0.66666666667rem;
+    right: 0.66666666667rem; }
+    #navigation a.go-home, #navigation a.go-home:hover, #navigation a.go-home:active {
+      background: none;
+      background-image: url('images/purple-moco.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      border: 0; }
   @media screen and (max-width: 900px) {
     #navigation {
       padding-top: 5rem;
       padding-left: 0;
       background: #FFFEFF;
-      background-image: url('images/purple-moco.png');
-      background-size: 4rem;
-      background-position: calc(100% - 1rem) 0.5rem;
-      background-repeat: no-repeat;
       transition: all 0.3s ease-in-out; }
       #navigation a {
         display: block;
@@ -847,29 +860,48 @@ body {
         max-width: 100%;
         overflow-x: hidden;
         text-align: left;
-        padding: 1rem 2rem;
+        padding: 2rem 2rem;
         margin-bottom: 0.5rem;
         background: rgba(90, 0, 131, 0.1); }
-        #navigation a:first-of-type {
-          margin-top: 1rem; }
         #navigation a:hover, #navigation a:active {
           color: #FFFEFF;
-          background: #48006a; }
+          background: #48006a;
+          text-shadow: -1px -1px rgba(0, 0, 0, 0.1); }
       #navigation.nav-down {
         margin-top: 0; }
       #navigation.nav-up {
         margin-top: -7.5rem; }
+      #navigation .navigation-toggle {
+        display: inline-block;
+        border: 0;
+        margin: 0;
+        transition: all 0.1s ease-in; }
+        #navigation .navigation-toggle:active, #navigation .navigation-toggle:focus {
+          outline: none; }
+        #navigation .navigation-toggle:active {
+          -webkit-transform: scale(1.5); }
       #navigation.toggled {
         margin-top: 0;
         min-height: 150%;
         overflow: auto;
         max-height: none; }
-      #navigation .navigation-toggle {
-        display: inline-block;
-        border: 0;
-        margin: 0; }
-        #navigation .navigation-toggle:active {
-          -webkit-transform: scale(1.5); } }
+        #navigation.toggled .navigation-toggle {
+          width: 5rem;
+          color: transparent;
+          overflow: hidden;
+          border-radius: 100%;
+          -webkit-transform: scale(0.61803); }
+          #navigation.toggled .navigation-toggle:after {
+            font-family: FontAwesome;
+            content: "\f00d";
+            color: #ffffff;
+            font-size: 4rem;
+            color: #fff;
+            position: absolute;
+            top: 0.66666666667rem;
+            left: 0;
+            width: 100%;
+            text-align: center; } }
   @media screen and (min-width: 900px) {
     #navigation {
       border-bottom: 2px solid rgba(90, 0, 131, 0.15);
@@ -896,7 +928,12 @@ body {
         #navigation a:nth-of-type(8n+7):hover {
           border-bottom-color: #5A0083; }
         #navigation a:nth-of-type(8n+8):hover {
-          border-bottom-color: #FF00FF; } }
+          border-bottom-color: #FF00FF; }
+        #navigation a.go-home {
+          margin-top: 0;
+          left: 1rem; }
+          #navigation a.go-home:hover {
+            border: 0; } }
 
 /* image preview */
 html body > .preview {

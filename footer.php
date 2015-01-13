@@ -52,6 +52,7 @@
 	
    <nav id="navigation">
       <button class="navigation-toggle"><?php _e( 'Menu', 'thermochromism' ); ?></button>
+      <a class="go-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
       <?php thermochromism_nav_menu(array( 'theme_location' => 'primary', 'container' => false) ); ?>
     </nav>
  <script type="text/javascript">
