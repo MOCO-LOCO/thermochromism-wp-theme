@@ -1,6 +1,6 @@
 window.viewportUnitsBuggyfill.init();
 !(function ( $ ) {
-    return;
+
         var cells=2;
        // if( $(window).width() < 900 ){ return }
   // $('header').each( function () {
@@ -10,8 +10,13 @@ window.viewportUnitsBuggyfill.init();
     $(function () {
 
         $container = $('.images');
-        $parent =  $container.parent('.sub-body');
-        var height = $parent.height();
+        $parent      =  $container.parent('.sub-body');
+        var height  = $parent.height();
+        var width   = $container.width();
+        var pack;
+        
+        
+
     
 
         if( $container.length ){
@@ -19,38 +24,77 @@ window.viewportUnitsBuggyfill.init();
             var $images = $container.children('img');
             var total  = $images.length;
             var loaded = 0;
+            var init = true;
+             if( total ){
+                var complete = function () {
+                    if( init){
+                        init = false;
+                        $images.map(function () {
+                            $i = $( this );
+                            var shape = $i.data('shape');
 
-                if( total ){
-                      var complete = function () {
-                      var width = $container.width();
-                      var mult = (width / 2 ) * ( cells  / 2);
-                      // $container.add( $parent ).css({height: mult, minHeight: mult });
-                      $images.each( function () {
-                              var $i = $( this ).css('opacity', 1);
-                              var $wrap = $('<a>');
-                              var shape = $i.data('shape');
-                              var h = Math.floor( height / ($images.length*2)  );
-                              $wrap.addClass( "image-link  " + shape ).attr( 'href', $i.attr('src') );
-                              $wrap.css({ 'background-image': 'url(' + $i.attr('src') + ')'});
-                              $container.prepend( $wrap );
-                              $wrap.on('click', function  ( e ) {
-                                    $('#navigation').hide()
-                                    e.preventDefault();
-                                    var $cl = $(this).clone(false).addClass('preview').appendTo('body')
-                                    $cl.one('click', function  (e) {
-                                                                            e.preventDefault();
-                                        $('#navigation').show()
-                                        $cl.remove();                                  })
-                                  $i.toggleClass('preview')
-                              });
+                            $wrap = $('<a>').attr('href', $i.attr('src') ).addClass('image-link ' + $i.data('shape'));
+                            $wrap.css('background-image', 'url('+$i.attr('src')+')');
+                            $wrap.appendTo( $container );
+                            if( shape === 'square'){
+                                $wrap.css('width', width/2);
+                                $wrap.css('height', width/2);
+                            }
+                             if( shape === 'portrait'){
+                                $wrap.css('height', width);
+                            }
+                              if( shape === 'landscape'){
+                                $wrap.css('width', width);
+                            }
+                        })
+                        pack = new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
+                    }
+                    if( $(window).width < 900 ){
+                        pack.unbindResize();
+                        $container.css({
+                            height: 'auto',
+                            overflow: 'hidden'
+                        } );
+
+                        $parent.css('height', 'auto');
+                        
+                    }else{
+                        pack.layout()
+                        pack.bindResize();
+                    
+                    }
+              
+                }
+                //       var complete = function () {
+                //       var width = $container.width();
+                //       var mult = (width / 2 ) * ( cells  / 2);
+                //       // $container.add( $parent ).css({height: mult, minHeight: mult });
+                //       $images.each( function () {
+                //               var $i = $( this ).css('opacity', 1);
+                //               var $wrap = $('<a>');
+                //               var shape = $i.data('shape');
+                //               var h = Math.floor( height / ($images.length*2)  );
+                //               $wrap.addClass( "image-link  " + shape ).attr( 'href', $i.attr('src') );
+                //               $wrap.css({ 'background-image': 'url(' + $i.attr('src') + ')'});
+                //               $container.prepend( $wrap );
+                //               $wrap.on('click', function  ( e ) {
+                //                     $('#navigation').hide()
+                //                     e.preventDefault();
+                //                     var $cl = $(this).clone(false).addClass('preview').appendTo('body')
+                //                     $cl.one('click', function  (e) {
+                //                                                             e.preventDefault();
+                //                         $('#navigation').show()
+                //                         $cl.remove();                                  })
+                //                   $i.toggleClass('preview')
+                //               });
 
                                               
-                    });
-                    new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
-                  }
+                //     });
+                //     new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
+                //   }
         $images.each( function ( ) {
           var $i = $( this );
-          $i.css('opacity', 0).on('error', function () {
+          $i.on('error', function () {
             loaded++;
           }).one('load', function () {      
             var w = $i.width(), h = $i.height(), klass = '';
