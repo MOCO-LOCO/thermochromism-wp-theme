@@ -886,9 +886,11 @@ body {
           -webkit-transform: scale(1.5); }
       #navigation.toggled {
         margin-top: 0;
-        min-height: 150%;
+        min-height: 100%;
+        max-height: none;
+        overflow-y: hidden;
         overflow: auto;
-        max-height: none; }
+        z-index: 99999; }
         #navigation.toggled .navigation-toggle {
           width: 5rem;
           color: transparent;
