@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           }
       },
       watch: {
-        files: ['bower_components/**/package.json','scss/_*.scss','scss/style.scss' ,       'scss/cartesian/scss/_*.scss','scss/cartesianscss/style.scss','!scss/_bower.scss'],
+        files: ['bower_components/**/package.json','scss/_*.scss','scss/style.scss' ,       'scss/cartesian/scss/**/_*.scss','scss/cartesian/scss/main.scss','!scss/_bower.scss'],
         tasks: ['sass', 'autoprefixer'],
         options: {livereload: true}
       },
