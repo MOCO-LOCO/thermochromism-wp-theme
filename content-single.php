@@ -16,6 +16,6 @@
       <?php the_content(); ?>
       <!-- 
    --><footer class="sub-foot"><?php thermochromism_post_footer_meta_content(); ?></footer>
-  </div>
+         </div>
     
 </article>

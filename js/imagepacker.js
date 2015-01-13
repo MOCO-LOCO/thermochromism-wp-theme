@@ -1,6 +1,8 @@
 window.viewportUnitsBuggyfill.init();
 !(function ( $ ) {
+    return;
         var cells=2;
+       // if( $(window).width() < 900 ){ return }
   // $('header').each( function () {
   //   var h = (this.offsetHeight||$(this).height()) + 'px';
   //   $(this).css( { height: h, minHeight: h, maxHeight: h });
@@ -10,7 +12,7 @@ window.viewportUnitsBuggyfill.init();
         $container = $('.images');
         $parent =  $container.parent('.sub-body');
         var height = $parent.height();
-  
+    
 
         if( $container.length ){
           
@@ -22,7 +24,7 @@ window.viewportUnitsBuggyfill.init();
                       var complete = function () {
                       var width = $container.width();
                       var mult = (width / 2 ) * ( cells  / 2);
-                      $container.add( $parent ).css({height: mult, minHeight: mult ,maxHeight: mult, overflow: 'hidden'});
+                      // $container.add( $parent ).css({height: mult, minHeight: mult });
                       $images.each( function () {
                               var $i = $( this ).css('opacity', 1);
                               var $wrap = $('<a>');
