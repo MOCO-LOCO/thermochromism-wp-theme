@@ -49,22 +49,22 @@ window.viewportUnitsBuggyfill.init();
                         })
                         pack = new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
                     }
-                    if( $(window).width < 900 ){
-                        pack.unbindResize();
-                        $container.css({
-                            height: 'auto',
-                            overflow: 'hidden'
-                        } );
+                //     if( $(window).width < 900 ){
+                //         pack.unbindResize();
+                //         $container.css({
+                //             height: 'auto',
+                //             overflow: 'hidden'
+                //         } );
 
-                        $parent.css('height', 'auto');
+                //         $parent.css('height', 'auto');
                         
-                    }else{
-                        pack.layout()
-                        pack.bindResize();
+                //     }else{
+                //         pack.layout()
+                //         pack.bindResize();
                     
-                    }
+                //     }
               
-                }
+                // }
                 //       var complete = function () {
                 //       var width = $container.width();
                 //       var mult = (width / 2 ) * ( cells  / 2);
