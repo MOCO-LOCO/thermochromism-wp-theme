@@ -890,15 +890,16 @@ body {
         max-height: none;
         overflow-y: hidden;
         overflow: auto;
-        z-index: 99999;
-        -webkit-transform: translateZ(1px);
-                transform: translateZ(1px); }
+        z-index: 99999; }
         #navigation.toggled .navigation-toggle {
           width: 5rem;
           color: transparent;
           overflow: hidden;
           border-radius: 100%;
-          -webkit-transform: scale(0.61803); }
+          -webkit-transform: scale(0.61803);
+              -ms-transform: scale(0.61803);
+                  transform: scale(0.61803);
+          padding-left: 2.7639320225rem; }
           #navigation.toggled .navigation-toggle:after {
             font-family: FontAwesome;
             content: "\f00d";

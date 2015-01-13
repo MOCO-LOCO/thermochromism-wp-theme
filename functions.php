@@ -162,7 +162,6 @@ function thermochromism_scripts() {
 	wp_enqueue_style( 'thermochromism-style', get_stylesheet_uri() );
 
   wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'thermochromism-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	//wp_enqueue_script( 'thermochromism-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -177,6 +176,8 @@ function thermochromism_scripts() {
         wp_enqueue_script( 'thermochromism-scolling', get_bloginfo('template_directory') . '/js/scrolling.js', array(), time(), true  );
 
         wp_enqueue_script( 'thermochromism-development', get_bloginfo('template_directory') . '/js/dev.js', array(), time(), true  );
+        	wp_enqueue_script( 'thermochromism-navigation', get_template_directory_uri() . '/js/navigation.js', array(), time(), true );
+
 
     // # Tumblr Share
     //    wp_enqueue_script( 'thermochromism-share-on-tumblr', 'http://platform.tumblr.com/v1/share.js', array('jquery') );
