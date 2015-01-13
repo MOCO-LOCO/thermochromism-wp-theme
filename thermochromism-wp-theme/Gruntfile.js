@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       },
       watch: {
         files: ['bower_components/**/package.json','scss/_*.scss','scss/style.scss' ,       'scss/cartesian/scss/_*.scss','scss/cartesianscss/style.scss','!scss/_bower.scss'],
-        tasks: ['sass'], //, 'autoprefixer']
+        tasks: ['sass', 'autoprefixer'],
         options: {livereload: true}
       },
       bower_concat: {

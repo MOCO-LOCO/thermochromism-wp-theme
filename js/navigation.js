@@ -18,6 +18,7 @@ $(function  () {
         e.preventDefault()
         console.log('QWERQWEr');
         $nav.toggleClass('toggled').removeClass('nav-up')
+        $('body').toggleClass('noscroll')
     });
    
 })

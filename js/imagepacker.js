@@ -27,28 +27,28 @@ window.viewportUnitsBuggyfill.init();
             var init = true;
              if( total ){
                 var complete = function () {
-                    if( init){
-                        init = false;
-                        $images.map(function () {
-                            $i = $( this );
-                            var shape = $i.data('shape');
+                    // if( init){
+                    //     init = false;
+                    //     $images.map(function () {
+                    //         $i = $( this );
+                    //         var shape = $i.data('shape');
 
-                            $wrap = $('<a>').attr('href', $i.attr('src') ).addClass('image-link ' + $i.data('shape'));
-                            $wrap.css('background-image', 'url('+$i.attr('src')+')');
-                            $wrap.appendTo( $container );
-                            if( shape === 'square'){
-                                $wrap.css('width', width/2);
-                                $wrap.css('height', width/2);
-                            }
-                             if( shape === 'portrait'){
-                                $wrap.css('height', width);
-                            }
-                              if( shape === 'landscape'){
-                                $wrap.css('width', width);
-                            }
-                        })
-                        pack = new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
-                    }
+                    //         $wrap = $('<a>').attr('href', $i.attr('src') ).addClass('image-link ' + $i.data('shape'));
+                    //         $wrap.css('background-image', 'url('+$i.attr('src')+')');
+                    //         $wrap.appendTo( $container );
+                    //         if( shape === 'square'){
+                    //             $wrap.css('width', width/2);
+                    //             $wrap.css('height', width/2);
+                    //         }
+                    //          if( shape === 'portrait'){
+                    //             $wrap.css('height', width);
+                    //         }
+                    //           if( shape === 'landscape'){
+                    //             $wrap.css('width', width);
+                    //         }
+                    //     })
+                    //     pack = new Packery($container.get(0), {transitionDuration:0,isOriginLeft: false, itemSelector: '.image-link', containerStyle: null});
+                    // }
                     // if( $(window).width < 900 ){
                     //     pack.unbindResize();
                     //     $container.css({
